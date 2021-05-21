@@ -33,4 +33,4 @@ javascript: void((function () {
       });
     };
   }
-})())</nooldey@gmail.com>
+})())

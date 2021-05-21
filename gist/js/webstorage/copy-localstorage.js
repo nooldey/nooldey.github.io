@@ -38,4 +38,4 @@ javascript: void((function () {
     console.log(contentValue);
     alert('无法自动复制，请打开控制台复制输出的内容');
   }
-})())</nooldey@gmail.com>
+})())

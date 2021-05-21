@@ -31,4 +31,4 @@ const generate = (l) => {
     return result
 }
 
-console.log(generate(8))</nooldey@gmail.com>
+console.log(generate(8))
