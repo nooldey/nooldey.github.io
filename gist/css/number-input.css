@@ -1,0 +1,16 @@
+/*
+ * @Author: zws <nooldey@gmail.com> 
+ * @Date: 2021-04-29 16:59:05 
+ * @Last Modified by: zws 
+ * @Description: 隐藏input type=number 的输入框上下箭头
+ */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
