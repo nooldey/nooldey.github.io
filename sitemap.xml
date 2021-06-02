@@ -30,13 +30,6 @@
   </url>
   
   <url>
-    <loc>http://zhuweisheng.com.cn/hexo/git-vps/</loc>
-    
-    <lastmod>2021-06-02</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://zhuweisheng.com.cn/hexo/leancloud-counter/</loc>
     
     <lastmod>2021-06-02</lastmod>
@@ -52,146 +45,6 @@
   
   <url>
     <loc>http://zhuweisheng.com.cn/hexo/travis-setting/</loc>
-    
-    <lastmod>2021-06-02</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhuweisheng.com.cn/wordpress/unwanted-code/</loc>
-    
-    <lastmod>2021-06-02</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhuweisheng.com.cn/wordpress/wordpress-insert-adcode/</loc>
-    
-    <lastmod>2021-06-02</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhuweisheng.com.cn/wordpress/wordpress-security/</loc>
-    
-    <lastmod>2021-06-02</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhuweisheng.com.cn/wordpress/wordpress-set-503/</loc>
-    
-    <lastmod>2021-06-02</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhuweisheng.com.cn/wordpress/wordpress-tagcloud-new/</loc>
-    
-    <lastmod>2021-06-02</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhuweisheng.com.cn/wordpress/wp-clean-up/</loc>
-    
-    <lastmod>2021-06-02</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhuweisheng.com.cn/wordpress/wp-slider/</loc>
-    
-    <lastmod>2021-06-02</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhuweisheng.com.cn/wordpress/wp2sinablog/</loc>
-    
-    <lastmod>2021-06-02</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhuweisheng.com.cn/about.html</loc>
-    
-    <lastmod>2021-06-02</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhuweisheng.com.cn/friends.html</loc>
-    
-    <lastmod>2021-06-02</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhuweisheng.com.cn/portfolio.html</loc>
-    
-    <lastmod>2021-06-02</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhuweisheng.com.cn/gist/canvas.html</loc>
-    
-    <lastmod>2021-06-02</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhuweisheng.com.cn/gist/travis/config.json</loc>
-    
-    <lastmod>2021-06-02</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhuweisheng.com.cn/gist/monaco-actions.json</loc>
-    
-    <lastmod>2021-06-02</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhuweisheng.com.cn/framework/koa-router-api/</loc>
-    
-    <lastmod>2021-06-02</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhuweisheng.com.cn/framework/vue-cli-leap-out/</loc>
-    
-    <lastmod>2021-06-02</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhuweisheng.com.cn/framework/vue-learn/</loc>
-    
-    <lastmod>2021-06-02</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhuweisheng.com.cn/framework/vue-old/</loc>
-    
-    <lastmod>2021-06-02</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhuweisheng.com.cn/framework/vue-router-old/</loc>
-    
-    <lastmod>2021-06-02</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhuweisheng.com.cn/framework/vue-ssr/</loc>
     
     <lastmod>2021-06-02</lastmod>
     
@@ -450,6 +303,104 @@
   </url>
   
   <url>
+    <loc>http://zhuweisheng.com.cn/tech/linux-command-list/</loc>
+    
+    <lastmod>2021-06-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhuweisheng.com.cn/about.html</loc>
+    
+    <lastmod>2021-06-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhuweisheng.com.cn/friends.html</loc>
+    
+    <lastmod>2021-06-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhuweisheng.com.cn/portfolio.html</loc>
+    
+    <lastmod>2021-06-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhuweisheng.com.cn/gist/canvas.html</loc>
+    
+    <lastmod>2021-06-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhuweisheng.com.cn/gist/travis/config.json</loc>
+    
+    <lastmod>2021-06-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhuweisheng.com.cn/gist/monaco-actions.json</loc>
+    
+    <lastmod>2021-06-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhuweisheng.com.cn/framework/koa-router-api/</loc>
+    
+    <lastmod>2021-06-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhuweisheng.com.cn/framework/vue-cli-leap-out/</loc>
+    
+    <lastmod>2021-06-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhuweisheng.com.cn/framework/vue-learn/</loc>
+    
+    <lastmod>2021-06-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhuweisheng.com.cn/framework/vue-old/</loc>
+    
+    <lastmod>2021-06-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhuweisheng.com.cn/framework/vue-router-old/</loc>
+    
+    <lastmod>2021-06-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhuweisheng.com.cn/framework/vue-ssr/</loc>
+    
+    <lastmod>2021-06-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhuweisheng.com.cn/hexo/git-vps/</loc>
+    
+    <lastmod>2021-06-02</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://zhuweisheng.com.cn/wordpress/301htaccess/</loc>
     
     <lastmod>2021-06-02</lastmod>
@@ -681,7 +632,56 @@
   </url>
   
   <url>
-    <loc>http://zhuweisheng.com.cn/tech/linux-command-list/</loc>
+    <loc>http://zhuweisheng.com.cn/wordpress/unwanted-code/</loc>
+    
+    <lastmod>2021-06-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhuweisheng.com.cn/wordpress/wordpress-insert-adcode/</loc>
+    
+    <lastmod>2021-06-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhuweisheng.com.cn/wordpress/wordpress-security/</loc>
+    
+    <lastmod>2021-06-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhuweisheng.com.cn/wordpress/wordpress-set-503/</loc>
+    
+    <lastmod>2021-06-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhuweisheng.com.cn/wordpress/wordpress-tagcloud-new/</loc>
+    
+    <lastmod>2021-06-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhuweisheng.com.cn/wordpress/wp-clean-up/</loc>
+    
+    <lastmod>2021-06-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhuweisheng.com.cn/wordpress/wp-slider/</loc>
+    
+    <lastmod>2021-06-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhuweisheng.com.cn/wordpress/wp2sinablog/</loc>
     
     <lastmod>2021-06-02</lastmod>
     
