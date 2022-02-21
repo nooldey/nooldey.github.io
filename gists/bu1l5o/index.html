@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="gists">
+    <meta name="description" content="ZWS 的代码片段世界">
+    <meta name="author" content="ZWS">
+    
+    <title>
+        
+            less-loader引入普通css文件 |
+        
+        ZWS&#39;s Gists
+    </title>
+    
+<link rel="stylesheet" href="/gists/css/style.css">
+
+    <link rel="shortcut icon" href="/gists/images/logo.svg">
+    
+<link rel="stylesheet" href="/gists/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"zhuweisheng.com.cn","root":"/gists/","language":"zh-cn"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                ZWS&#39;s Gists
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/gists/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/gists/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/gists/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/gists/archives">ARCHIVES</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">less-loader引入普通css文件</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/gists/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">ZWS</span>
+                        
+                            <span class="author-label">Lv3</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2019-03-12 15:06:35</span>
+        <span class="mobile">2019-03-12 15:06</span>
+    </span>
+    
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h3 id="在-xxx-less-文件中引入-xxx-css-的正确姿势"><a href="#在-xxx-less-文件中引入-xxx-css-的正确姿势" class="headerlink" title="在 xxx.less 文件中引入 xxx.css 的正确姿势"></a>在 xxx.less 文件中引入 xxx.css 的正确姿势</h3><p>事情是酱紫的：我在项目的某个 index.less 文件中，引入了一个普通 css 样式，长这样：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@import</span> <span class="string">&quot;./base.css&quot;</span>;</span><br><span class="line"><span class="keyword">@import</span> <span class="string">&quot;./other.less&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>然而，在执行依赖包安装完毕之后，运行项目的开发，出现了这样的错误：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ERROR  Failed to compile with 1 errors                                                                                                 10:37:46</span><br><span class="line">This dependency was not found:</span><br><span class="line"></span><br><span class="line">* -!../node_modules/_css-loader@1.0.1@css-loader/index.js??ref--10-oneOf-1-1!../node_modules/_vue-loader@15.4.2@vue-loader/lib/loaders/stylePostLoader.js!../node_modules/_postcss-loader@2.1.6@postcss-loader/lib/index.js??ref--10-oneOf-1-2!./base.css <span class="keyword">in</span> ./node_modules/_css-loader@1.0.1@css-loader??ref--10-oneOf-1-1!./node_modules/_vue-loader@15.4.2@vue-loader/lib/loaders/stylePostLoader.js!./node_modules/_postcss-loader@2.1.6@postcss-loader/lib??ref--10-oneOf-1-2!./node_modules/_less-loader@4.1.0@less-loader/dist/cjs.js??ref--10-oneOf-1-3!./node_modules/_cache-loader@1.2.2@cache-loader/dist/cjs.js??ref--0-0!./node_modules/_vue-loader@15.4.2@vue-loader/lib??vue-loader-options!./src/App.vue?vue&amp;<span class="built_in">type</span>=style&amp;index=0⟨=less&amp;</span><br><span class="line"></span><br><span class="line">To install it, you can run: npm install --save -!../node_modules/_css-loader@1.0.1@css-loader/index.js??ref--10-oneOf-1-1!../node_modules/_vue-loader@15.4.2@vue-loader/lib/loaders/stylePostLoader.js!../node_modules/_postcss-loader@2.1.6@postcss-loader/lib/index.js??ref--10-oneOf-1-2!./base.css</span><br></pre></td></tr></table></figure>
+
+<p><strong>报错原因</strong>：在 index.less 中直接引入了<code>.css</code>文件，当 less-loader 以 less 的编译规则对 css 文件进行编译后，重命名文件前后的名称、后缀名都没有变化，导致 less-loader 无法判断编译是否完成，从而报错。</p>
+<p><strong>解决方法</strong>：在.less 文件中引入.css 文件时，添加编译设置让 less-loader 直接引入文件并不对文件进行任何编译。如：<code>@import (inline) &#39;./base.css&#39;;</code></p>
+<blockquote>
+<p>reference: 使用该文件，但不编译输出到目录；<br>inline: 仅引入对应的样式文件，不对样式文件做任何编译，保留原始内容；<br>less: 忽略文件的类型，强制采用 less-loader 的规则进行编译；<br>css: 忽略文件的类型，强制采用 css 文件的方式进行编译和引入；<br>once: 只引入一次该文件（默认配置）；<br>multiple: 对此引入该文件？【不清楚多次引入的目的——】；<br>optional: 指明该文件为可选文件，当无法搜寻到文件时跳过该文件的编译步骤。</p>
+</blockquote>
+<p><strong>LESS 官方文档解释：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Less offers several extensions to the CSS @import CSS at-rule to provide more flexibility over what you can <span class="keyword">do</span> with external files.</span><br><span class="line"></span><br><span class="line">Syntax: @import (keyword) <span class="string">&quot;filename&quot;</span>;</span><br><span class="line"></span><br><span class="line">The following import options have been implemented:</span><br><span class="line"></span><br><span class="line">reference: use a Less file but <span class="keyword">do</span> not output it</span><br><span class="line">inline: include the <span class="built_in">source</span> file <span class="keyword">in</span> the output but <span class="keyword">do</span> not process it</span><br><span class="line">less: treat the file as a Less file, no matter what the file extension</span><br><span class="line">css: treat the file as a CSS file, no matter what the file extension</span><br><span class="line">once: only include the file once (this is default behavior)</span><br><span class="line">multiple: include the file multiple <span class="built_in">times</span></span><br><span class="line">optional: <span class="built_in">continue</span> compiling when file is not found</span><br><span class="line">More than one keyword per @import is allowed, you will have to use commas to separate the keywords:</span><br><span class="line"></span><br><span class="line">Example: @import (optional, reference) <span class="string">&quot;foo.less&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>在初期遇到这个错误的时候，我也是百思不得其解，只从项目的配置、依赖包安装是否正确的方向去向，忽略了特殊文件混用的时候，相关 loader 包的规则，又是一条新的开拓思维，以后在遇到编译错误或者运行错误的时候，可以多一个猜想：<strong>我的写法是否符合对应的加载包的规则呢？</strong></p>
+
+        </div>
+
+        
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/gists/practice/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">匿名、闭包易错题</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/gists/dqzs06/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">image-fade-in-out</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">ZWS</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/gists/js/utils.js"></script>
+
+<script src="/gists/js/main.js"></script>
+
+<script src="/gists/js/header-shrink.js"></script>
+
+<script src="/gists/js/back2top.js"></script>
+
+<script src="/gists/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>
