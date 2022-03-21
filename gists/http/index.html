@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="gists">
+    <meta name="description" content="ZWS 的代码片段世界">
+    <meta name="author" content="ZWS">
+    
+    <title>
+        
+            HTTP基础 |
+        
+        ZWS&#39;s Gists
+    </title>
+    
+<link rel="stylesheet" href="/gists/css/style.css">
+
+    <link rel="shortcut icon" href="/gists/images/logo.svg">
+    
+<link rel="stylesheet" href="/gists/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"zhuweisheng.com.cn","root":"/gists/","language":"zh-cn"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                ZWS&#39;s Gists
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/gists/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/gists/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/gists/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/gists/archives">ARCHIVES</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">HTTP基础</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/gists/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">ZWS</span>
+                        
+                            <span class="author-label">Lv3</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2021-07-27 01:48:02</span>
+        <span class="mobile">2021-07-27 01:48</span>
+    </span>
+    
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p>{“format”:”lakemind”,”type”:”Mind”,”version”:”1.0”,”diagramData”:{“head”:{“version”:”2.0.0”},”body”:[{“id”:”init”,”type”:”mindmap”,”html”:”HTTP”,”children”:[{“layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#A287E1”},”id”:”6417e7c5-a369-4d30-bd78-0d47b437fbaa”,”children”:[{“id”:”d1690fad-c63a-4952-ac20-89219aa56221”,”children”:[],”zIndex”:133,”html”:”Hyper Text Transfer Protocol 超文本传输协议”,”height”:null},{“id”:”3d272c62-6f5e-4a07-976a-1c659a5ff612”,”children”:[],”html”:”Client&#x2F;Service 架构”,”height”:null,”zIndex”:132}],”html”:”概念”,”zIndex”:134},{“layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#E48484”},”id”:”d4349886-27c4-40f3-b8c7-ca0b29c44fd5”,”children”:[{“id”:”3d7d6183-1905-4b0a-86f6-778e243454ac”,”children”:[{“id”:”68049769-6e37-4737-86a9-94293fa2c420”,”children”:[{“id”:”8dcb3d36-3a7f-49b5-bcff-642e9a6c3f4c”,”children”:[{“id”:”974453a4-d41c-461d-9055-889233ed0cb3”,”children”:[],”html”:”请求方法 | 空格 | URL | 空格 | 协议版本 | 回车符 | 换行符”,”zIndex”:147},{“html”:”get <a class="link"   target="_blank" rel="noopener" href="http://example.com/" >http://example.com<i class="fas fa-external-link-alt"></i></a> HTTP&#x2F;1.1 “,”id”:”e6adcfb1-eae0-4c73-93a4-1f51569ce479”,”children”:[],”zIndex”:146}],”html”:”请求行”,”zIndex”:148},{“html”:”请求头部”,”id”:”129dcda1-aa8c-4bc7-89d1-f0d581594ed7”,”children”:[{“id”:”db75acd2-949f-4358-98f9-46f4b36de544”,”children”:[],”html”:”头部字段名 | ：| 值 | 回车 | 换行符”,”height”:null,”zIndex”:144},{“id”:”529877b2-60fb-4011-9dcf-eee27ede2a31”,”children”:[],”html”:”<div>User-Agent: curl&#x2F;7.16.3 libcurl&#x2F;7.16.3 OpenSSL&#x2F;0.9.7l zlib&#x2F;1.2.3\r</div><div>Host: <a class="link"   target="_blank" rel="noopener" href="http://www.example.com/r" >www.example.com\r<i class="fas fa-external-link-alt"></i></a></div><div>Accept-Language: en, mi</div>“,”zIndex”:143}],”zIndex”:145},{“html”:”空行”,”id”:”a3aaa0f7-8f77-4ca6-b6b5-50554f3e98ec”,”children”:[],”zIndex”:142},{“html”:”请求数据”,”id”:”9f4aade2-39bd-4766-bd17-4ff947309404”,”children”:[],”zIndex”:141}],”html”:”&lt;div style&#x3D;&quot;text-align:center;&quot;&gt;<span style></span></div>“,”image”:{“src”:”<a class="link"   target="_blank" rel="noopener" href="https://cdn.nlark.com/yuque/0/2021/png/285760/1627350821720-db26d172-329b-49c5-868a-7a6fe8931998.png&quot;,&quot;naturalWidth&quot;:466,&quot;naturalHeight&quot;:165,&quot;uploadInfo&quot;:%7B&quot;hash&quot;:&quot;b11ac49a1477604b1cde65d3e14eb34bba7b9caa35eb3cd8b061b0240b5673ff&quot;,&quot;fileName&quot;:&quot;image.png&quot;,&quot;fileType&quot;:&quot;image/png&quot;,&quot;fileSize&quot;:12327,&quot;localTempSrc&quot;:&quot;blob:file:///3286ba64-16db-4324-92ad-590325c97149&quot;,&quot;state&quot;:2%7D,&quot;firstInsertRatio&quot;:0.6666666666666666,&quot;width&quot;:310.66666666666663,&quot;height&quot;:109.99999999999999%7D,&quot;zIndex&quot;:149%7D],&quot;html&quot;:&quot;%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%AF%B7%E6%B1%82%E6%B6%88%E6%81%AF&quot;,&quot;height&quot;:null,&quot;zIndex&quot;:150%7D,%7B&quot;html&quot;:&quot;%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%93%8D%E5%BA%94%E6%B6%88%E6%81%AF&quot;,&quot;id&quot;:&quot;2eeec731-5e21-4455-b5e7-cdef5ffeb6eb&quot;,&quot;children&quot;:[%7B&quot;id&quot;:&quot;86f64512-de51-45ad-a3d2-86dc25333405&quot;,&quot;children&quot;:[%7B&quot;id&quot;:&quot;d180d541-c8b9-4821-92ef-683e92ee6716&quot;,&quot;children&quot;:[],&quot;html&quot;:&quot;%E7%8A%B6%E6%80%81%E8%A1%8C&quot;,&quot;height&quot;:null,&quot;zIndex&quot;:138%7D,%7B&quot;html&quot;:&quot;%E6%B6%88%E6%81%AF%E6%8A%A5%E5%A4%B4&quot;,&quot;id&quot;:&quot;966e59c1-b9b9-4822-9be3-b763094b6b57&quot;,&quot;children&quot;:[],&quot;height&quot;:null,&quot;zIndex&quot;:137%7D,%7B&quot;html&quot;:&quot;%E7%A9%BA%E8%A1%8C&quot;,&quot;id&quot;:&quot;aa15a5cd-a367-4061-89d4-a467b28ae556&quot;,&quot;children&quot;:[],&quot;height&quot;:null,&quot;zIndex&quot;:136%7D,%7B&quot;html&quot;:&quot;%E5%93%8D%E5%BA%94%E6%AD%A3%E6%96%87&quot;,&quot;id&quot;:&quot;7d445b6b-d852-4b2c-a2be-3828b76bf399&quot;,&quot;children&quot;:[],&quot;height&quot;:null,&quot;zIndex&quot;:135%7D],&quot;html&quot;:&quot;" >https://cdn.nlark.com/yuque/0/2021/png/285760/1627350821720-db26d172-329b-49c5-868a-7a6fe8931998.png&quot;,&quot;naturalWidth&quot;:466,&quot;naturalHeight&quot;:165,&quot;uploadInfo&quot;:{&quot;hash&quot;:&quot;b11ac49a1477604b1cde65d3e14eb34bba7b9caa35eb3cd8b061b0240b5673ff&quot;,&quot;fileName&quot;:&quot;image.png&quot;,&quot;fileType&quot;:&quot;image/png&quot;,&quot;fileSize&quot;:12327,&quot;localTempSrc&quot;:&quot;blob:file:///3286ba64-16db-4324-92ad-590325c97149&quot;,&quot;state&quot;:2},&quot;firstInsertRatio&quot;:0.6666666666666666,&quot;width&quot;:310.66666666666663,&quot;height&quot;:109.99999999999999},&quot;zIndex&quot;:149}],&quot;html&quot;:&quot;客户端请求消息&quot;,&quot;height&quot;:null,&quot;zIndex&quot;:150},{&quot;html&quot;:&quot;服务器响应消息&quot;,&quot;id&quot;:&quot;2eeec731-5e21-4455-b5e7-cdef5ffeb6eb&quot;,&quot;children&quot;:[{&quot;id&quot;:&quot;86f64512-de51-45ad-a3d2-86dc25333405&quot;,&quot;children&quot;:[{&quot;id&quot;:&quot;d180d541-c8b9-4821-92ef-683e92ee6716&quot;,&quot;children&quot;:[],&quot;html&quot;:&quot;状态行&quot;,&quot;height&quot;:null,&quot;zIndex&quot;:138},{&quot;html&quot;:&quot;消息报头&quot;,&quot;id&quot;:&quot;966e59c1-b9b9-4822-9be3-b763094b6b57&quot;,&quot;children&quot;:[],&quot;height&quot;:null,&quot;zIndex&quot;:137},{&quot;html&quot;:&quot;空行&quot;,&quot;id&quot;:&quot;aa15a5cd-a367-4061-89d4-a467b28ae556&quot;,&quot;children&quot;:[],&quot;height&quot;:null,&quot;zIndex&quot;:136},{&quot;html&quot;:&quot;响应正文&quot;,&quot;id&quot;:&quot;7d445b6b-d852-4b2c-a2be-3828b76bf399&quot;,&quot;children&quot;:[],&quot;height&quot;:null,&quot;zIndex&quot;:135}],&quot;html&quot;:&quot;<i class="fas fa-external-link-alt"></i></a>&lt;div style&#x3D;&quot;text-align: center;&quot;&gt;&lt;span style&#x3D;&quot;letter-spacing: 0.1px;&quot;&gt;​</span></div>“,”height”:175.6,”image”:{“src”:”<a class="link"   target="_blank" rel="noopener" href="https://cdn.nlark.com/yuque/0/2021/png/285760/1627351073764-0920fcd2-d764-4542-8077-ad81bdd77d06.png&quot;,&quot;naturalWidth&quot;:683,&quot;naturalHeight&quot;:305,&quot;uploadInfo&quot;:%7B&quot;hash&quot;:&quot;7efb93c9cd39e222810c451bbfe8fa0a05e84497adf663ea85e0b694dc6dc304&quot;,&quot;fileName&quot;:&quot;image.png&quot;,&quot;fileType&quot;:&quot;image/png&quot;,&quot;fileSize&quot;:108342,&quot;localTempSrc&quot;:&quot;blob:file:///8a51e459-8766-4b56-b3a6-a4f45ce9780f&quot;,&quot;state&quot;:2%7D,&quot;firstInsertRatio&quot;:0.6666666666666666,&quot;width&quot;:297.6,&quot;height&quot;:132.896046852123%7D,&quot;width&quot;:313.6,&quot;zIndex&quot;:139%7D],&quot;height&quot;:null,&quot;zIndex&quot;:140%7D],&quot;zIndex&quot;:151,&quot;html&quot;:&quot;%E6%B6%88%E6%81%AF%E7%BB%93%E6%9E%84&quot;,&quot;height&quot;:null%7D,%7B&quot;html&quot;:&quot;%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95&quot;,&quot;layout&quot;:%7B&quot;quadrant&quot;:1%7D,&quot;treeEdge&quot;:%7B&quot;stroke&quot;:&quot;#69B1E4&quot;},&quot;id&quot;:&quot;a60175df-14d3-4c83-8575-a65ceb035f7c&quot;,&quot;children&quot;:[{&quot;id&quot;:&quot;bcc40b6c-d3fe-49b0-878a-ec3697270f48&quot;,&quot;children&quot;:[{&quot;id&quot;:&quot;ef57214a-019b-46a0-a36a-5e5932cb5b04&quot;,&quot;children&quot;:[{&quot;id&quot;:&quot;9357851c-e4f8-4f94-942f-a0de6e0e1e77&quot;,&quot;children&quot;:[],&quot;html&quot;:&quot;%E8%AF%B7%E6%B1%82%E6%8C%87%E5%AE%9A%E7%9A%84%E9%A1%B5%E9%9D%A2%E4%BF%A1%E6%81%AF%EF%BC%8C%E5%B9%B6%E8%BF%94%E5%9B%9E%E5%AE%9E%E4%BD%93%E4%B8%BB%E4%BD%93&quot;,&quot;height&quot;:null,&quot;zIndex&quot;:167}],&quot;html&quot;:&quot;GET&quot;,&quot;height&quot;:null,&quot;zIndex&quot;:168},{&quot;html&quot;:&quot;POST&quot;,&quot;id&quot;:&quot;cd870265-cea4-4e28-ac0d-cfd2bbd1857b&quot;,&quot;children&quot;:[{&quot;id&quot;:&quot;822c1937-21cb-41eb-aa90-41cf4e484a34&quot;,&quot;children&quot;:[],&quot;html&quot;:&quot;%E5%90%91%E6%8C%87%E5%AE%9A%E8%B5%84%E6%BA%90%E6%8F%90%E4%BA%A4%E6%95%B0%E6%8D%AE%E8%BF%9B%E8%A1%8C%E5%A4%84%E7%90%86%E8%AF%B7%E6%B1%82%EF%BC%88%E4%BE%8B%E5%A6%82%E6%8F%90%E4%BA%A4%E8%A1%A8%E5%8D%95%E6%88%96%E8%80%85%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%EF%BC%89&quot;,&quot;height&quot;:null,&quot;zIndex&quot;:169}],&quot;height&quot;:null,&quot;zIndex&quot;:170},{&quot;html&quot;:&quot;HEAD&quot;,&quot;id&quot;:&quot;fdd54403-32fb-4f5e-968e-87152cff6334&quot;,&quot;children&quot;:[{&quot;id&quot;:&quot;fbc29e62-c05e-4dff-adb1-feac052512b9&quot;,&quot;children&quot;:[],&quot;html&quot;:&quot;%E8%AF%B7%E6%B1%82%E6%8C%87%E5%AE%9A%E7%9A%84%E9%A1%B5%E9%9D%A2%EF%BC%8C%E4%B8%8D%E8%BF%94%E5%9B%9E%E5%85%B7%E4%BD%93%E5%86%85%E5%AE%B9%EF%BC%8C%E7%94%A8%E4%BA%8E%E8%8E%B7%E5%8F%96%E6%8A%A5%E5%A4%B4&quot;,&quot;height&quot;:null,&quot;zIndex&quot;:165}],&quot;height&quot;:null,&quot;zIndex&quot;:166}],&quot;html&quot;:&quot;1.0&quot;,&quot;height&quot;:null,&quot;zIndex&quot;:171},{&quot;html&quot;:&quot;1.1&quot;,&quot;id&quot;:&quot;c9f76115-2836-4a6c-8175-0da181c82464&quot;,&quot;children&quot;:[{&quot;id&quot;:&quot;8647dac2-6092-42a6-b359-7a0c0f2387ba&quot;,&quot;children&quot;:[{&quot;id&quot;:&quot;46c8a4ac-c97b-4ce2-bb43-6d8d77078e99&quot;,&quot;children&quot;:[],&quot;html&quot;:&quot;%E5%85%81%E8%AE%B8%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%9F%A5%E7%9C%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E6%80%A7%E8%83%BD&quot;,&quot;height&quot;:null,&quot;zIndex&quot;:154}],&quot;html&quot;:&quot;OPTIONS&quot;,&quot;height&quot;:null,&quot;zIndex&quot;:155},{&quot;html&quot;:&quot;PUT&quot;,&quot;id&quot;:&quot;9a5668b8-93c7-4e7b-b09b-b6685f111866&quot;,&quot;children&quot;:[{&quot;id&quot;:&quot;18606f6a-d960-4c97-8e27-3368ccba20b7&quot;,&quot;children&quot;:[],&quot;html&quot;:&quot;%E5%90%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BC%A0%E9%80%81%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8F%96%E4%BB%A3%E6%8C%87%E5%AE%9A%E7%9A%84%E6%96%87%E6%A1%A3%E7%9A%84%E5%86%85%E5%AE%B9&quot;,&quot;height&quot;:null,&quot;zIndex&quot;:158}],&quot;height&quot;:null,&quot;zIndex&quot;:159},{&quot;html&quot;:&quot;PATCH&quot;,&quot;id&quot;:&quot;19410d77-3189-4020-b487-1902063bba1c&quot;,&quot;children&quot;:[{&quot;id&quot;:&quot;8b0fd75b-abae-4b4a-84f1-fc3db9fb076b&quot;,&quot;children&quot;:[],&quot;html&quot;:&quot;%E5%AF%B9" >https://cdn.nlark.com/yuque/0/2021/png/285760/1627351073764-0920fcd2-d764-4542-8077-ad81bdd77d06.png&quot;,&quot;naturalWidth&quot;:683,&quot;naturalHeight&quot;:305,&quot;uploadInfo&quot;:{&quot;hash&quot;:&quot;7efb93c9cd39e222810c451bbfe8fa0a05e84497adf663ea85e0b694dc6dc304&quot;,&quot;fileName&quot;:&quot;image.png&quot;,&quot;fileType&quot;:&quot;image/png&quot;,&quot;fileSize&quot;:108342,&quot;localTempSrc&quot;:&quot;blob:file:///8a51e459-8766-4b56-b3a6-a4f45ce9780f&quot;,&quot;state&quot;:2},&quot;firstInsertRatio&quot;:0.6666666666666666,&quot;width&quot;:297.6,&quot;height&quot;:132.896046852123},&quot;width&quot;:313.6,&quot;zIndex&quot;:139}],&quot;height&quot;:null,&quot;zIndex&quot;:140}],&quot;zIndex&quot;:151,&quot;html&quot;:&quot;消息结构&quot;,&quot;height&quot;:null},{&quot;html&quot;:&quot;请求方法&quot;,&quot;layout&quot;:{&quot;quadrant&quot;:1},&quot;treeEdge&quot;:{&quot;stroke&quot;:&quot;#69B1E4&quot;},&quot;id&quot;:&quot;a60175df-14d3-4c83-8575-a65ceb035f7c&quot;,&quot;children&quot;:[{&quot;id&quot;:&quot;bcc40b6c-d3fe-49b0-878a-ec3697270f48&quot;,&quot;children&quot;:[{&quot;id&quot;:&quot;ef57214a-019b-46a0-a36a-5e5932cb5b04&quot;,&quot;children&quot;:[{&quot;id&quot;:&quot;9357851c-e4f8-4f94-942f-a0de6e0e1e77&quot;,&quot;children&quot;:[],&quot;html&quot;:&quot;请求指定的页面信息，并返回实体主体&quot;,&quot;height&quot;:null,&quot;zIndex&quot;:167}],&quot;html&quot;:&quot;GET&quot;,&quot;height&quot;:null,&quot;zIndex&quot;:168},{&quot;html&quot;:&quot;POST&quot;,&quot;id&quot;:&quot;cd870265-cea4-4e28-ac0d-cfd2bbd1857b&quot;,&quot;children&quot;:[{&quot;id&quot;:&quot;822c1937-21cb-41eb-aa90-41cf4e484a34&quot;,&quot;children&quot;:[],&quot;html&quot;:&quot;向指定资源提交数据进行处理请求（例如提交表单或者上传文件）&quot;,&quot;height&quot;:null,&quot;zIndex&quot;:169}],&quot;height&quot;:null,&quot;zIndex&quot;:170},{&quot;html&quot;:&quot;HEAD&quot;,&quot;id&quot;:&quot;fdd54403-32fb-4f5e-968e-87152cff6334&quot;,&quot;children&quot;:[{&quot;id&quot;:&quot;fbc29e62-c05e-4dff-adb1-feac052512b9&quot;,&quot;children&quot;:[],&quot;html&quot;:&quot;请求指定的页面，不返回具体内容，用于获取报头&quot;,&quot;height&quot;:null,&quot;zIndex&quot;:165}],&quot;height&quot;:null,&quot;zIndex&quot;:166}],&quot;html&quot;:&quot;1.0&quot;,&quot;height&quot;:null,&quot;zIndex&quot;:171},{&quot;html&quot;:&quot;1.1&quot;,&quot;id&quot;:&quot;c9f76115-2836-4a6c-8175-0da181c82464&quot;,&quot;children&quot;:[{&quot;id&quot;:&quot;8647dac2-6092-42a6-b359-7a0c0f2387ba&quot;,&quot;children&quot;:[{&quot;id&quot;:&quot;46c8a4ac-c97b-4ce2-bb43-6d8d77078e99&quot;,&quot;children&quot;:[],&quot;html&quot;:&quot;允许客户端查看服务器的性能&quot;,&quot;height&quot;:null,&quot;zIndex&quot;:154}],&quot;html&quot;:&quot;OPTIONS&quot;,&quot;height&quot;:null,&quot;zIndex&quot;:155},{&quot;html&quot;:&quot;PUT&quot;,&quot;id&quot;:&quot;9a5668b8-93c7-4e7b-b09b-b6685f111866&quot;,&quot;children&quot;:[{&quot;id&quot;:&quot;18606f6a-d960-4c97-8e27-3368ccba20b7&quot;,&quot;children&quot;:[],&quot;html&quot;:&quot;向服务器传送的数据取代指定的文档的内容&quot;,&quot;height&quot;:null,&quot;zIndex&quot;:158}],&quot;height&quot;:null,&quot;zIndex&quot;:159},{&quot;html&quot;:&quot;PATCH&quot;,&quot;id&quot;:&quot;19410d77-3189-4020-b487-1902063bba1c&quot;,&quot;children&quot;:[{&quot;id&quot;:&quot;8b0fd75b-abae-4b4a-84f1-fc3db9fb076b&quot;,&quot;children&quot;:[],&quot;html&quot;:&quot;对<i class="fas fa-external-link-alt"></i></a> PUT 方法的补充，用来对已知资源进行局部更新”,”height”:null,”zIndex”:162}],”height”:null,”zIndex”:163},{“html”:”DELETE”,”id”:”7a660423-c862-41b4-a529-1d8f0abe3ea7”,”children”:[{“id”:”45168241-2e72-4513-91e3-d2d53e23f949”,”children”:[],”html”:”请求服务器删除指定的页面”,”height”:null,”zIndex”:160}],”height”:null,”zIndex”:161},{“html”:”TRACE”,”id”:”fcaa9eca-1ac4-4d9d-b555-c90136f1ebdf”,”children”:[{“id”:”efb2736b-e940-4976-af04-700e64521bd7”,”children”:[],”html”:”回显服务器收到的请求，主要用于测试或诊断”,”height”:null,”zIndex”:156}],”height”:null,”zIndex”:157},{“html”:”CONNECT”,”id”:”6bc8c1ce-5c94-4d30-b0af-7f8b3da9d973”,”children”:[{“id”:”ad8358f1-a39b-4046-abc8-46fd1b487588”,”children”:[],”html”:”预留给能够将连接改为管道方式的代理服务器”,”height”:null,”zIndex”:152}],”height”:null,”zIndex”:153}],”height”:null,”zIndex”:164}],”height”:null,”zIndex”:172},{“html”:”响应头信息”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#DE81C6”},”id”:”6a992763-97cc-464b-a20e-876fe868c077”,”children”:[{“id”:”cf2232d1-208d-4334-967a-1c1edd4db941”,”children”:[{“id”:”e09aedfd-9255-487e-92ab-2b820433b108”,”children”:[],”html”:”支持哪些请求方式”,”height”:null,”zIndex”:175}],”html”:”Allow”,”height”:null,”zIndex”:176},{“html”:”Content-Encoding”,”id”:”f94d5e67-4133-4232-a2b5-1c86bdf9a188”,”children”:[{“id”:”1c06a530-53cb-4ad5-88b9-f5b25a19580d”,”children”:[],”html”:”文档编码方式”,”height”:null,”zIndex”:180}],”height”:null,”zIndex”:181},{“html”:”Content-Length”,”id”:”95a9da06-960f-47d8-b3eb-9c572c67f72a”,”children”:[{“id”:”d8a7c376-ca53-4371-b894-8c799364562d”,”children”:[],”html”:”内容长度，在持久 HTTP 连接时需要”,”height”:null,”zIndex”:182}],”height”:null,”zIndex”:183},{“html”:”Content-Type”,”id”:”4ec8dedc-6dc3-4f50-973b-22a25e482da4”,”children”:[{“id”:”7f82f824-ad7c-47f9-9d58-7f6aed514269”,”children”:[{“id”:”2a26ced8-984b-4763-972d-265f0d0f7ce5”,”children”:[{“id”:”0a2dc5df-6aaa-4ed0-bc52-3f69f3341825”,”children”:[{“id”:”9f852f62-0e08-44b0-9398-bad773849b98”,”children”:[],”html”:”表单上传文件时使用”,”height”:null,”zIndex”:206}],”html”:”multipart&#x2F;form-data”,”height”:null,”zIndex”:207},{“id”:”546889ad-308b-438c-b612-d3b02a041f34”,”children”:[],”html”:”text&#x2F;html ： HTML 格式”,”height”:null,”zIndex”:209},{“id”:”25720e02-3767-4df5-bb5c-e1fdc0551b33”,”children”:[],”html”:”text&#x2F;plain ：纯文本格式”,”height”:null,”zIndex”:211},{“id”:”14fccf63-f3a2-4ebd-b9ac-4fea3138603d”,”children”:[],”html”:”text&#x2F;xml ： XML 格式”,”height”:null,”zIndex”:212},{“id”:”839a7a43-c3f8-4179-ab7d-069c34a5e679”,”children”:[],”html”:”image&#x2F;gif ：gif 图片格式”,”height”:null,”zIndex”:210},{“id”:”41614dad-e9be-4613-8790-c0c1deaa84d8”,”children”:[],”html”:”image&#x2F;jpeg ：jpg 图片格式”,”height”:null,”zIndex”:208},{“id”:”36fc74f3-c99c-48e4-9586-2aaa0082c02c”,”children”:[],”html”:”image&#x2F;png：png 图片格式”,”height”:null,”zIndex”:205}],”html”:”常见媒体格式”,”height”:null,”zIndex”:213},{“html”:”application&#x2F;<em>“,”id”:”082554ba-dfb4-49d8-a786-faaa228c57da”,”children”:[{“id”:”0982e931-3f76-4596-9963-053c28d11b17”,”children”:[],”html”:”application&#x2F;xhtml+xml ：XHTML 格式”,”height”:null,”zIndex”:197},{“id”:”25422d15-04a4-4fee-8c01-1ae079abbe21”,”children”:[],”html”:”application&#x2F;xml： XML 数据格式”,”height”:null,”zIndex”:199},{“id”:”59d56b34-17af-4d73-9395-0df1722e397f”,”children”:[],”html”:”application&#x2F;atom+xml ：Atom XML 聚合格式”,”height”:null,”zIndex”:201},{“id”:”071727a2-ec91-44fc-b71a-25e8d38c14e9”,”children”:[],”html”:”application&#x2F;json： JSON 数据格式”,”height”:null,”zIndex”:203},{“id”:”cf6377a5-7b55-46d2-b3b6-f63f26835fd4”,”children”:[],”html”:”application&#x2F;pdf：pdf 格式”,”height”:null,”zIndex”:202},{“id”:”6554ef03-7321-4107-af49-6f5b57e1e8ff”,”children”:[],”html”:”application&#x2F;msword ： Word 文档格式”,”height”:null,”zIndex”:200},{“id”:”d9cacdba-2da1-4724-9d4d-48292f81c45c”,”children”:[],”html”:”application&#x2F;octet-stream ： 二进制流数据（如常见的文件下载）”,”height”:null,”zIndex”:198},{“id”:”ec29cd4e-f322-40d1-9c3b-54e0112d243c”,”children”:[],”html”:”application&#x2F;x-www-form-urlencoded：表单默认的提交数据的格式”,”zIndex”:196}],”height”:null,”zIndex”:204}],”zIndex”:214,”html”:”后面的文档属于什么 MIME 类型”,”height”:null}],”height”:null,”zIndex”:215},{“html”:”Date”,”id”:”8f8bb579-efd9-423b-b9d7-f08a4dfa33c2”,”children”:[{“id”:”c4f264fa-1825-4abd-bb50-181c91bd2c3f”,”children”:[],”html”:”当前 GMT 时间”,”height”:null,”zIndex”:218}],”height”:null,”zIndex”:219},{“html”:”Expires”,”id”:”9442507b-9541-4b04-8cc5-a6bcfb87598d”,”children”:[{“id”:”384a557c-24c1-4207-a1eb-d5d4993753fb”,”children”:[],”html”:”文档过期时间，到期清理缓存”,”height”:null,”zIndex”:216}],”height”:null,”zIndex”:217},{“html”:”Last-Modified”,”id”:”16e84aa1-8fce-43fc-ae1a-bdf384355baa”,”children”:[{“id”:”f4ae02da-97a3-4759-8103-399f2ba24115”,”children”:[],”html”:”文档最后修改时间”,”height”:null,”zIndex”:194}],”height”:null,”zIndex”:195},{“html”:”Location”,”id”:”22bb9057-5681-4bf6-8397-db537e8def0c”,”children”:[{“id”:”10bde9c8-59ff-43df-b6dc-ae7de01f1e58”,”children”:[],”html”:”通过 HttpServletResponse 的 sendRedirect 方法设置的提取文档的位置”,”height”:null,”zIndex”:191},{“html”:”状态码变 302”,”id”:”a788e9c6-c1d4-4c73-a209-0bb8ac6afb86”,”children”:[],”height”:null,”zIndex”:192},{“id”:”ad263fd8-40a1-4444-9c5b-a52d19142d21”,”children”:[],”html”:”HttpServletResponse.sendRedirect()”,”zIndex”:190}],”height”:null,”zIndex”:193},{“html”:”Refresh”,”id”:”daa04956-502f-4b60-be44-6526de4ce417”,”children”:[{“id”:”db44d9df-e35b-46de-9a01-f967e3750ba3”,”children”:[],”html”:”N 秒之后刷新本页面或访问指定页面”,”height”:null,”zIndex”:187},{“html”:”连续刷新需要每次请求都携带 Refresh 头信息”,”id”:”f61b6ea9-c14f-415e-b360-c9472a257250”,”children”:[],”height”:null,”zIndex”:188},{“html”:”发送 204 可以阻止浏览器继续刷新”,”id”:”e78932c5-87d6-4657-bcc0-fb33e3ccf69a”,”children”:[],”height”:null,”zIndex”:186}],”height”:null,”zIndex”:189},{“html”:”Server”,”id”:”49252787-54fd-4cbc-a6cd-49cbc054790b”,”children”:[{“id”:”b77c0718-84f5-425e-8083-e47c400d1f3a”,”children”:[],”html”:”服务器名字”,”height”:null,”zIndex”:184}],”height”:null,”zIndex”:185},{“html”:”Set-Cookie”,”id”:”f1286d0e-c6f3-4503-bbca-d94e88a0a807”,”children”:[{“html”:”设置和页面关联的 Cookie”,”id”:”1acbb19b-616c-4ddd-8d2d-97cff7545281”,”children”:[],”zIndex”:178},{“html”:”HttpServletResponse.addCookie()”,”id”:”2dc488e5-383b-4cfc-b858-400d0230cec5”,”children”:[],”zIndex”:177,”height”:null}],”height”:null,”zIndex”:179},{“html”:”WWW-Authenticate”,”id”:”6f3fb893-91b2-4533-aace-ea4efc3718c2”,”children”:[{“id”:”494f9fa5-0a58-461a-92ea-014c7b349b5d”,”children”:[],”html”:”客户应该在 Authorization 头中提供什么类型的授权信息”,”height”:null,”zIndex”:173}],”height”:null,”zIndex”:174}],”zIndex”:220},{“html”:”状态码”,”layout”:{“quadrant”:1},”treeEdge”:{“stroke”:”#77C386”},”id”:”90e9844c-c437-45c5-9914-1c17dac93cb1”,”children”:[{“id”:”2a545395-8b48-4ad1-bce5-0d2fffa4df48”,”children”:[{“id”:”dd12869a-c65a-47bd-889a-1784e6143be3”,”children”:[{“id”:”03f90565-3796-43b8-a923-2a805ffc7acb”,”children”:[{“id”:”4460b589-36f1-4343-977f-1a521cbabb26”,”children”:[{“id”:”2e62fd3f-61f5-4f6f-8a12-bf7370c41567”,”children”:[],”html”:”客户端应继续请求”,”height”:null,”zIndex”:23}],”html”:”Continue”,”zIndex”:24}],”html”:”100”,”height”:null,”zIndex”:25},{“html”:”101”,”id”:”02cab00b-5334-4e9d-b957-f1b7820694cd”,”children”:[{“id”:”cc12f280-e5a7-4df0-8b20-fbf12517a3d2”,”children”:[{“id”:”b6ea5c6c-1b3f-49ba-a11f-76f9f4e96dfc”,”children”:[],”html”:”服务端根据客户端的请求切换到更高级的协议”,”height”:null,”zIndex”:20}],”html”:”Switching Protocols”,”zIndex”:21}],”height”:null,”zIndex”:22}],”html”:”信息，服务器收到请求，需要请求者继续执行操作”,”height”:45,”zIndex”:26,”width”:336}],”html”:”1</em><em>“,”height”:null,”zIndex”:27},{“html”:”2</em><em>“,”id”:”7b0627b1-0023-487e-814a-1f50b0ea009b”,”children”:[{“id”:”86b4363e-c892-4a56-b66b-26c4b985170f”,”children”:[{“id”:”a29d956b-4b6f-4a03-96d9-5fbe2d00b2d4”,”children”:[{“id”:”472009cf-2568-42d9-876a-80bb69c24dcb”,”children”:[{“id”:”4b73dcc7-5ac9-472d-a80c-873b4fd71409”,”children”:[],”html”:”请求成功”,”height”:null,”zIndex”:31}],”html”:”OK”,”zIndex”:32}],”html”:”&lt;span style&#x3D;&quot;color:rgb(241, 14, 14); font-weight:bold;&quot;&gt;200</span>“,”height”:null,”zIndex”:33},{“html”:”201”,”id”:”41668938-6d76-4a88-8b08-213c8dac54da”,”children”:[{“id”:”9bbc43e8-373e-4d90-a773-15114f0b9537”,”children”:[{“id”:”018b65ab-e602-43f9-b661-6adf16d117ff”,”children”:[],”html”:”已创建，成功请求并创建了资源”,”height”:null,”zIndex”:37}],”html”:”Created”,”zIndex”:38}],”height”:null,”zIndex”:39},{“html”:”202”,”id”:”22e34953-d803-49ac-adac-5aa75cb3fc46”,”children”:[{“id”:”13144a0e-6ae0-4c1c-a109-ae2656171fb0”,”children”:[{“id”:”81e2fbe9-cdbe-44d2-ae67-685f45a23f86”,”children”:[],”html”:”已接收请求，但未处理完成”,”height”:null,”zIndex”:43}],”html”:”Accepted”,”zIndex”:44}],”height”:null,”zIndex”:45},{“html”:”203”,”id”:”065954e9-4e02-412f-969a-eff201a7a075”,”children”:[{“id”:”8e0cdc96-535f-406c-9076-ccb89572a6c4”,”children”:[{“id”:”c279b111-2e39-45f4-9001-dc9b6618094f”,”children”:[],”html”:”非授权信息，请求成功，但返回的 meta 信息不在原始服务器，是副本”,”zIndex”:46}],”zIndex”:47,”html”:”Non-Authoritative Infomation”}],”height”:null,”zIndex”:48},{“html”:”204”,”id”:”f7bdc727-421f-4043-b992-1cf810f5f34f”,”children”:[{“id”:”59e7aeb6-89bc-4a4b-b1e3-22c4b01e8110”,”children”:[{“id”:”10aced10-6e90-40e1-96e5-853e6362ab66”,”children”:[],”html”:”请求成功处理，但未返回内容，未更新网页情况下，可确保浏览器继续显示当前文档”,”height”:null,”zIndex”:40}],”html”:”No Content”,”height”:null,”zIndex”:41}],”height”:null,”zIndex”:42},{“html”:”205”,”id”:”9f3fd3e0-36fd-472c-8f17-730994661ce8”,”children”:[{“id”:”4bfbcea3-783e-4e99-90fd-d0de6d85c5c5”,”children”:[{“id”:”1069ed1e-171d-4a5d-a064-c97ce5e94d9b”,”children”:[],”html”:”请求成功处理，并需要客户端重置文档，可用于清除浏览器的表单域”,”height”:null,”zIndex”:34}],”html”:”Reset Content”,”height”:null,”zIndex”:35}],”height”:null,”zIndex”:36},{“html”:”206”,”id”:”c4e77431-f5a1-4e0f-b9ff-08f1d045bf07”,”children”:[{“id”:”221b8db8-d91a-4ac2-a13a-1b6c74a35054”,”children”:[{“id”:”9f5e054c-fc33-4fbc-b888-e3c80d387835”,”children”:[],”html”:”Get 请求被部分处理”,”height”:null,”zIndex”:28}],”html”:”Partial Content”,”height”:null,”zIndex”:29}],”height”:null,”zIndex”:30}],”html”:”成功，操作被成功接收并处理\r”,”height”:31,”zIndex”:49,”width”:206}],”height”:null,”zIndex”:50},{“html”:”3</em><em>“,”id”:”fa958e7a-20a1-4aef-bb5e-d6ebfdc74ef4”,”children”:[{“id”:”eec4c85f-bb06-404a-a5c0-48c79b798000”,”children”:[{“id”:”c491d480-5f6d-434a-a821-446a3b9fa5cd”,”children”:[{“id”:”134805f9-151a-44f6-a883-c6854b99ce55”,”children”:[{“id”:”95dd8a4a-f366-42f2-819a-daa6a7fa68aa”,”children”:[],”zIndex”:54,”html”:”请求的资源可包括多个位置”,”height”:null}],”html”:”Multiple Choices”,”height”:null,”zIndex”:55}],”html”:”300”,”height”:null,”zIndex”:56},{“html”:”&lt;span style&#x3D;&quot;color:rgb(241, 14, 14); font-weight:bold;&quot;&gt;301</span>“,”id”:”ca010087-78df-4161-af19-329efd3f7797”,”children”:[{“id”:”e086b000-ebec-4763-a3a0-d30aa9566dbe”,”children”:[{“id”:”8dff0521-d8f7-41aa-bb18-16cd48055ad8”,”children”:[],”html”:”永久移动”,”height”:null,”zIndex”:59}],”html”:”Moved Permanently”,”height”:null,”zIndex”:60}],”height”:null,”zIndex”:61},{“html”:”&lt;span style&#x3D;&quot;font-weight:bold; color:rgb(241, 14, 14);&quot;&gt;302</span>“,”id”:”d3b652f9-6be9-4fa8-84f6-d329120bf9e3”,”children”:[{“id”:”c106521d-0663-43db-bf6f-6f5e7b8dca67”,”children”:[{“id”:”6d5d53ad-989e-41ce-8858-db433d397268”,”children”:[],”html”:”临时移动”,”height”:null,”zIndex”:65}],”zIndex”:66,”html”:”Found”,”height”:null}],”height”:null,”zIndex”:67},{“html”:”303”,”id”:”ac6db631-3d2b-4777-bc1f-d428ae0a68e6”,”children”:[{“id”:”7a541805-4cb5-4408-b56e-d61862e3b366”,”children”:[{“id”:”4e76d2c2-a3cc-4b1c-a8ec-fb070b096bbf”,”children”:[],”zIndex”:71,”html”:”查看其他位置，与 301 类似， GET、POST”}],”zIndex”:72,”html”:”See Other”,”height”:null}],”height”:null,”zIndex”:73},{“html”:”&lt;span style&#x3D;&quot;font-weight:bold; color:rgb(241, 14, 14);&quot;&gt;304</span>“,”id”:”573d0515-0e4e-4097-bca3-2fefe46ad619”,”children”:[{“id”:”cf609c26-bfb8-4b60-86e1-e6e42e679eca”,”children”:[{“id”:”3166cb82-d044-4b77-ad91-f1712bfa8b04”,”children”:[],”html”:”请求的资源未修改，不返回任何资源”,”height”:null,”zIndex”:68}],”zIndex”:69,”html”:”Not Modified”,”height”:null}],”height”:null,”zIndex”:70},{“html”:”305”,”id”:”28c845a7-c50f-41ff-88c6-340d0c34b314”,”children”:[{“id”:”ac3c69cc-18a3-42c7-aba3-f007a06f59a2”,”children”:[{“id”:”ff501795-0b7f-4082-a3b6-6c9645326e98”,”children”:[],”html”:”使用代理，所请求的资源必须通过代理访问”,”height”:null,”zIndex”:62}],”html”:”Use Proxy”,”height”:null,”zIndex”:63}],”height”:null,”zIndex”:64},{“html”:”306（已废弃）”,”id”:”6966c6c4-402b-47c7-9582-5f23dabb5cb3”,”children”:[{“id”:”e19ea061-2e34-437f-91e7-e0c39251c452”,”children”:[],”html”:”Unused”,”zIndex”:57}],”zIndex”:58},{“html”:”307”,”id”:”f3e5b663-20e7-471d-947a-c0b7386fb62c”,”children”:[{“id”:”4f8d701a-bd8e-45ac-a8e8-3fc40fcadad3”,”children”:[{“id”:”df28b5a6-64eb-4cb7-ae99-59bd62a695b5”,”children”:[],”zIndex”:51,”html”:”临时重定向，类似 302, GET “}],”zIndex”:52,”html”:”Temporary Redirect”,”height”:null}],”height”:null,”zIndex”:53}],”html”:”重定向，需要进一步的操作以完成请求”,”height”:18,”zIndex”:74,”width”:260}],”height”:null,”zIndex”:75},{“html”:”4</em>*”,”id”:”fc3971b3-ebd5-4f95-8db1-5454e6662828”,”children”:[{“id”:”a240d8c2-a906-4cd8-9af9-fdbbd90bbbba”,”children”:[{“id”:”d43ec88f-29db-4a58-9a63-a9756992739c”,”children”:[{“id”:”48d76134-8f0a-417f-a129-eb72626dfbbe”,”children”:[{“id”:”eed0b7f5-1bb9-49af-ab1f-96a3d8940cf7”,”children”:[],”html”:”客户端请求 语法错误，”,”height”:null,”zIndex”:79}],”html”:”Bad Request”,”height”:null,”zIndex”:80}],”html”:”&lt;span style&#x3D;&quot;font-weight:bold; color:rgb(241, 14, 14);&quot;&gt;400</span>“,”height”:null,”zIndex”:81},{“html”:”&lt;span style&#x3D;&quot;font-weight:bold; color:rgb(241, 14, 14);&quot;&gt;401</span>“,”id”:”b2198d93-560e-444d-ac86-972dbd2df8cc”,”children”:[{“id”:”45bc9f73-24f3-470d-84e8-7680673cf776”,”children”:[{“id”:”fd02abb8-6ee8-4089-949d-3b488b009ad5”,”children”:[],”html”:”要求用户身份认证”,”height”:null,”zIndex”:85}],”html”:”Unauthorized”,”height”:null,”zIndex”:86}],”zIndex”:87,”height”:null},{“html”:”402（保留）”,”id”:”f305fcfc-45d0-4b4c-aa3c-7d246fa9d26c”,”children”:[{“id”:”98f7ae28-6ab7-4773-b6d3-f2f52cdeaddd”,”children”:[],”zIndex”:91,”html”:”Payment Required”,”height”:null}],”zIndex”:92},{“html”:”&lt;span style&#x3D;&quot;font-weight:bold; color:rgb(241, 14, 14);&quot;&gt;403</span>“,”id”:”71813822-ca0b-457d-b11a-7124dc922004”,”children”:[{“id”:”4da4a705-954a-484f-bfd0-5978a03d89d9”,”children”:[{“id”:”2cea5ea4-95a8-4c60-a7ba-a3f6e262186b”,”children”:[],”zIndex”:96,”html”:”服务端拒绝执行请求”,”height”:null}],”zIndex”:97,”html”:”Forbidden”,”height”:null}],”height”:null,”zIndex”:98},{“html”:”&lt;span style&#x3D;&quot;font-weight:bold; color:rgb(241, 14, 14);&quot;&gt;404</span>“,”id”:”e0dbd026-f642-4fcf-baf6-40fff8696340”,”children”:[{“id”:”b6b0da0e-2d18-4aed-8e1b-e01064432d15”,”children”:[{“id”:”28191ad5-3536-47f9-9509-29a42c9c8864”,”children”:[],”zIndex”:102,”html”:”服务端无法找到请求的资源”,”height”:null}],”html”:”Not Found”,”zIndex”:103}],”height”:null,”zIndex”:104},{“html”:”&lt;span style&#x3D;&quot;font-weight:bold; color:rgb(241, 14, 14);&quot;&gt;405</span>“,”id”:”b4e669dd-30d4-4a7b-b4e3-859cb5d4e001”,”children”:[{“id”:”5903013c-60e5-46c5-8c36-45a373325914”,”children”:[{“id”:”b47a09fa-1d2d-414b-8aaf-eaafe35fb590”,”children”:[],”html”:”客户端请求方法被禁止”,”height”:null,”zIndex”:105}],”html”:”Method Not Allowed”,”height”:null,”zIndex”:106}],”height”:null,”zIndex”:107},{“html”:”406”,”id”:”6b2754f8-edda-4f68-a399-0f603b6cd5ce”,”children”:[{“id”:”eef898d5-b7bb-4b74-9c1b-846688f16d8f”,”children”:[{“id”:”8cd620c3-3907-40d6-b3d9-898a75df9fbe”,”children”:[],”zIndex”:111,”html”:”服务端无法根据请求内容特性完成请求”,”height”:null}],”html”:”Not Acceptable”,”height”:null,”zIndex”:112}],”height”:null,”zIndex”:113},{“html”:”407”,”id”:”58267808-d0c0-4fc0-840e-df56ddec4399”,”children”:[{“id”:”e62b4379-4786-4741-abb4-ff6cd0ed53e0”,”children”:[{“id”:”52d4c819-ba90-4176-86b4-e7dfb966634f”,”children”:[],”zIndex”:120,”html”:”请求要求代理的身份认证，与 401 类似，但请求者应当使用代理进行授权”,”height”:16,”width”:272}],”zIndex”:121,”html”:”Proxy Authentication Required”,”height”:null}],”height”:null,”zIndex”:122},{“html”:”&lt;span style&#x3D;&quot;font-weight:bold; color:rgb(241, 14, 14);&quot;&gt;408</span>“,”id”:”499f1e49-1cff-45d6-8323-49629bd2157c”,”children”:[{“id”:”1bf4d25d-3e9d-45ef-b2d4-d4216f399990”,”children”:[{“id”:”339d9bbb-9217-49dd-aa49-fac18e8d1c36”,”children”:[],”html”:”请求超时”,”zIndex”:126}],”html”:”Request Time-out”,”height”:null,”zIndex”:127}],”height”:null,”zIndex”:128},{“html”:”409”,”id”:”56c6fa8f-af4c-47b3-aa93-654193a67737”,”children”:[{“id”:”92b6037b-59c0-4486-b607-15c3e18d154b”,”children”:[{“id”:”37cd02f3-0258-4abd-8382-5f1f85f1cdae”,”children”:[],”zIndex”:123,”html”:”PUT 请求时，服务端处理发生了冲突”,”height”:null}],”zIndex”:124,”html”:”Conflict”,”height”:null}],”height”:null,”zIndex”:125},{“html”:”410”,”id”:”f7dfcfad-6e50-4c23-807f-bde99ad1272d”,”children”:[{“id”:”f349968d-a201-4eb9-81fa-0c071891e36c”,”children”:[{“id”:”5b0439cb-9fa5-4f67-afb6-0e78b8d7c70f”,”children”:[],”html”:”请求的资源已经不存在，不同于 404，表示资源存在过，现在被永久删除”,”height”:null,”zIndex”:117}],”html”:”Gone”,”height”:null,”zIndex”:118}],”height”:null,”zIndex”:119},{“html”:”411”,”id”:”7de2103b-5e8b-4301-b910-fd7213a69d6a”,”children”:[{“id”:”a53abd02-6972-4177-88cc-c65457f5da48”,”children”:[{“id”:”1999a223-682c-46c0-a93b-6787e4aac159”,”children”:[],”html”:”无法处理客户端不带 Content-Length 的请求信息”,”height”:null,”zIndex”:114}],”html”:”Length Required”,”height”:null,”zIndex”:115}],”height”:null,”zIndex”:116},{“html”:”412”,”id”:”06553432-6ec0-4eed-8d49-fa3cce3fb843”,”children”:[{“id”:”f6d5b4ce-5ca1-4d4d-818f-5ded16dc89f1”,”children”:[{“id”:”cfa1eb9d-1ef1-4a0f-99a0-051ec493dd09”,”children”:[],”html”:”客户端请求信息的先决条件错误”,”height”:null,”zIndex”:108}],”html”:”Precondition Failed”,”height”:null,”zIndex”:109}],”height”:null,”zIndex”:110},{“html”:”413”,”id”:”52aaedcd-8787-4915-8dab-9878679931af”,”children”:[{“id”:”6b6c4e7c-f7fe-4e44-80f1-2e320bb2af76”,”children”:[{“id”:”2d1f8ba5-2556-4e4d-813c-2b8955b0c861”,”children”:[],”html”:”请求实体过大，服务器无法处理，如果是暂时无法处理，会携带 Retry-After 相应信息”,”height”:35,”zIndex”:99,”width”:231}],”html”:”Request Entity Too Large”,”height”:null,”zIndex”:100}],”height”:null,”zIndex”:101},{“html”:”414”,”id”:”3575ef16-0897-4801-a443-e1323d95f400”,”children”:[{“id”:”23572219-7ca9-44ec-974f-6973c56f5f0c”,”children”:[{“id”:”35060789-08d3-4b2f-a2cb-4b92269b0219”,”children”:[],”zIndex”:93,”html”:”请求的 URI 过长”,”height”:null}],”html”:”Request-URI Too Large”,”height”:null,”zIndex”:94}],”height”:null,”zIndex”:95},{“html”:”415”,”id”:”581ad0a3-9266-4049-9a0f-0f9fe54e079c”,”children”:[{“id”:”f4655de1-8a10-408b-8496-61100555ac2b”,”children”:[{“id”:”6f40d868-d6e5-49ea-97a2-8b962d44f137”,”children”:[],”zIndex”:88,”html”:”服务器无法处理请求附带的媒体格式”,”height”:null}],”html”:”Unsupported Media Type”,”height”:null,”zIndex”:89}],”height”:null,”zIndex”:90},{“html”:”416”,”id”:”85f8d68b-fffa-4c92-94f6-052887fb9188”,”children”:[{“id”:”24e2cef5-b332-4b81-b95f-772a2b83f0f6”,”children”:[{“id”:”438cfa49-81ef-42e8-9441-83ab94fc17ae”,”children”:[],”html”:”客户端请求的范围无效， range 设置问题”,”height”:null,”zIndex”:82}],”html”:”Requested range not satisfiable”,”height”:null,”zIndex”:83}],”height”:null,”zIndex”:84},{“html”:”417”,”id”:”de13b22d-a0f2-4b4a-84f2-ffe7f9e06f62”,”children”:[{“id”:”ef799488-4d15-4bbf-b7e7-7daee329f829”,”children”:[{“id”:”6a8de9a4-67a5-425f-a27e-209e3a2a54ed”,”children”:[],”html”:”服务器无法满足 Expect 的请求头信息”,”height”:null,”zIndex”:76}],”html”:”Expectation Failed”,”height”:null,”zIndex”:77}],”height”:null,”zIndex”:78}],”html”:”客户端错误，请求包含语法错误或无法完成请求”,”height”:22,”zIndex”:129,”width”:322}],”height”:null,”zIndex”:130},{“html”:”5**“,”id”:”179e4a15-fece-41a0-9f3d-ca6c638d0b52”,”children”:[{“id”:”1b2c1b91-c1b1-4ebe-b24a-2b377eed9098”,”children”:[{“id”:”47c46cb4-64c5-455f-9b0c-e4939a112c65”,”children”:[{“id”:”c1a56023-33fe-4d3f-98e7-4771c7c868d6”,”children”:[{“id”:”8c03022c-4516-4a3b-808b-12fc65413685”,”children”:[],”html”:”服务器内部错误”,”height”:null,”zIndex”:3}],”html”:”Internal Server Error”,”height”:null,”zIndex”:4}],”html”:”&lt;span style&#x3D;&quot;font-weight:bold; color:rgb(241, 14, 14);&quot;&gt;500</span>“,”height”:null,”zIndex”:5},{“html”:”501”,”id”:”b693d869-663d-4403-99e5-636e8707ce34”,”children”:[{“id”:”c578282b-7d16-43ad-a9c6-1b1b804597e7”,”children”:[{“id”:”0b5dbf89-c8b7-4aec-9a76-b7a59b37f567”,”children”:[],”html”:”不支持请求的功能”,”height”:null,”zIndex”:9}],”html”:”Not Implemented “,”zIndex”:10}],”height”:null,”zIndex”:11},{“html”:”&lt;span style&#x3D;&quot;font-weight:bold; color:rgb(241, 14, 14);&quot;&gt;502</span>“,”id”:”43d1a4eb-6b12-4c23-ae33-b438ef1289a1”,”children”:[{“id”:”77532e17-273d-49a6-a48f-d8adf66aab28”,”children”:[{“id”:”29f68746-1938-4c1b-8cbd-19870d92b0a1”,”children”:[],”html”:” 作为网关或者代理工作的服务器尝试执行请求时，从远程服务器接收到了一个无效的响应”,”height”:null,”zIndex”:15,”width”:333}],”html”:”Bad Gateway”,”height”:null,”zIndex”:16}],”height”:null,”zIndex”:17},{“html”:”503”,”id”:”431f1019-3098-4d84-a20b-89df8a0e2961”,”children”:[{“id”:”94667045-00a8-413d-b3ed-c8a61d25d40b”,”children”:[{“html”:”超载或系统维护，服务器暂时的无法处理客户端的请求,<div>会携带 Retry-After 相应信息<br></div>“,”id”:”26668cc4-394d-482e-9d50-f6b8963035a5”,”children”:[],”zIndex”:12}],”html”:”Service Unavailable”,”height”:null,”zIndex”:13}],”height”:null,”zIndex”:14},{“html”:”&lt;span style&#x3D;&quot;font-weight:bold; color:rgb(241, 14, 14);&quot;&gt;504</span>“,”id”:”1c125328-ad60-4072-9222-6071e0f48717”,”children”:[{“id”:”4854a4c0-a7b0-4695-a012-3cc6dd3cfc15”,”children”:[{“id”:”58887cc6-5bd0-4736-97be-2ce0d0b3c035”,”children”:[],”html”:”充当网关或代理的服务器，未及时从远端服务器获取请求”,”height”:null,”zIndex”:6}],”html”:”Gateway Time-out”,”height”:null,”zIndex”:7}],”height”:null,”zIndex”:8},{“html”:”505”,”id”:”96fa492a-a0bc-43ac-8e78-af86aab134ac”,”children”:[{“id”:”273bfc46-0126-44cf-b4f6-1724e15c7ab4”,”children”:[{“id”:”7f5a8237-3d8c-4f8a-9be2-832dab2fd044”,”children”:[],”zIndex”:0,”html”:”不支持请求的 HTTP 协议的版本”,”height”:null}],”html”:”HTTP Version not supported”,”height”:null,”zIndex”:1}],”height”:null,”zIndex”:2}],”html”:”服务器错误，服务器在处理请求的过程中发生了错误”,”height”:null,”zIndex”:18}],”height”:null,”zIndex”:19}],”height”:null,”zIndex”:131}],”zIndex”:221,”tapered”:true}]},”viewportSetting”:{“zoom”:1,”tlCanvasPoint”:[226.66668701171875,-262,1],”width”:996,”height”:561},”text”:”HTTP 概念 Hyper Text Transfer Protocol 超文本传输协议 Client&#x2F;Service 架构消息结构客户端请求消息请求行请求方法 | 空格 | URL | 空格 | 协议版本 | 回车符 | 换行符 get <a class="link"   target="_blank" rel="noopener" href="http://example.com/" >http://example.com<i class="fas fa-external-link-alt"></i></a> HTTP&#x2F;1.1  请求头部头部字段名 | ：| 值 | 回车 | 换行符 User-Agent: curl&#x2F;7.16.3 libcurl&#x2F;7.16.3 OpenSSL&#x2F;0.9.7l zlib&#x2F;1.2.3\nHost: <a class="link"   target="_blank" rel="noopener" href="http://www.example.com/nAccept-Language" >www.example.com\nAccept-Language<i class="fas fa-external-link-alt"></i></a>: en, mi 空行请求数据服务器响应消息 ​ 状态行消息报头空行响应正文请求方法 1.0GET 请求指定的页面信息，并返回实体主体 POST 向指定资源提交数据进行处理请求（例如提交表单或者上传文件）HEAD 请求指定的页面，不返回具体内容，用于获取报头 1.1OPTIONS 允许客户端查看服务器的性能 PUT 向服务器传送的数据取代指定的文档的内容 PATCH 对 PUT 方法的补充，用来对已知资源进行局部更新 DELETE 请求服务器删除指定的页面 TRACE 回显服务器收到的请求，主要用于测试或诊断 CONNECT 预留给能够将连接改为管道方式的代理服务器响应头信息 Allow 支持哪些请求方式 Content-Encoding 文档编码方式 Content-Length 内容长度，在持久 HTTP 连接时需要 Content-Type 后面的文档属于什么 MIME 类型常见媒体格式 multipart&#x2F;form-data 表单上传文件时使用 text&#x2F;html ： HTML 格式 text&#x2F;plain ：纯文本格式 text&#x2F;xml ： XML 格式 image&#x2F;gif ：gif 图片格式 image&#x2F;jpeg ：jpg 图片格式 image&#x2F;png：png 图片格式 application&#x2F;*application&#x2F;xhtml+xml ：XHTML 格式 application&#x2F;xml： XML 数据格式 application&#x2F;atom+xml ：Atom XML 聚合格式 application&#x2F;json： JSON 数据格式 application&#x2F;pdf：pdf 格式 application&#x2F;msword ： Word 文档格式 application&#x2F;octet-stream ： 二进制流数据（如常见的文件下载）application&#x2F;x-www-form-urlencoded：表单默认的提交数据的格式 Date 当前 GMT 时间 Expires 文档过期时间，到期清理缓存 Last-Modified 文档最后修改时间 Location 通过 HttpServletResponse 的 sendRedirect 方法设置的提取文档的位置状态码变 302HttpServletResponse.sendRedirect()RefreshN 秒之后刷新本页面或访问指定页面连续刷新需要每次请求都携带 Refresh 头信息发送 204 可以阻止浏览器继续刷新 Server 服务器名字 Set-Cookie 设置和页面关联的 CookieHttpServletResponse.addCookie()WWW-Authenticate 客户应该在 Authorization 头中提供什么类型的授权信息状态码 1<strong>信息，服务器收到请求，需要请求者继续执行操作 100Continue 客户端应继续请求 101Switching Protocols 服务端根据客户端的请求切换到更高级的协议 2</strong>成功，操作被成功接收并处理\n200OK 请求成功 201Created 已创建，成功请求并创建了资源 202Accepted 已接收请求，但未处理完成 203Non-Authoritative Infomation 非授权信息，请求成功，但返回的 meta 信息不在原始服务器，是副本 204No Content 请求成功处理，但未返回内容，未更新网页情况下，可确保浏览器继续显示当前文档 205Reset Content 请求成功处理，并需要客户端重置文档，可用于清除浏览器的表单域 206Partial ContentGet 请求被部分处理 3<strong>重定向，需要进一步的操作以完成请求 300Multiple Choices 请求的资源可包括多个位置 301Moved Permanently 永久移动 302Found 临时移动 303See Other 查看其他位置，与 301 类似， GET、POST304Not Modified 请求的资源未修改，不返回任何资源 305Use Proxy 使用代理，所请求的资源必须通过代理访问 306（已废弃）Unused307Temporary Redirect 临时重定向，类似 302, GET 4</strong>客户端错误，请求包含语法错误或无法完成请求 400Bad Request 客户端请求 语法错误，401Unauthorized 要求用户身份认证 402（保留）Payment Required403Forbidden 服务端拒绝执行请求 404Not Found 服务端无法找到请求的资源 405Method Not Allowed 客户端请求方法被禁止 406Not Acceptable 服务端无法根据请求内容特性完成请求 407Proxy Authentication Required 请求要求代理的身份认证，与 401 类似，但请求者应当使用代理进行授权 408Request Time-out 请求超时 409ConflictPUT 请求时，服务端处理发生了冲突 410Gone 请求的资源已经不存在，不同于 404，表示资源存在过，现在被永久删除 411Length Required 无法处理客户端不带 Content-Length 的请求信息 412Precondition Failed 客户端请求信息的先决条件错误 413Request Entity Too Large 请求实体过大，服务器无法处理，如果是暂时无法处理，会携带 Retry-After 相应信息 414Request-URI Too Large 请求的 URI 过长 415Unsupported Media Type 服务器无法处理请求附带的媒体格式 416Requested range not satisfiable 客户端请求的范围无效， range 设置问题 417Expectation Failed 服务器无法满足 Expect 的请求头信息 5**服务器错误，服务器在处理请求的过程中发生了错误 500Internal Server Error 服务器内部错误 501Not Implemented  不支持请求的功能 502Bad Gateway 作为网关或者代理工作的服务器尝试执行请求时，从远程服务器接收到了一个无效的响应 503Service Unavailable 超载或系统维护，服务器暂时的无法处理客户端的请求,会携带 Retry-After 相应信息 504Gateway Time-out 充当网关或代理的服务器，未及时从远端服务器获取请求 505HTTP Version not supported 不支持请求的 HTTP 协议的版本”}</p>
+
+        </div>
+
+        
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/gists/fgzg7r/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">常用commitlint配置</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/gists/oilqkm/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">常用软件激活码</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">ZWS</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/gists/js/utils.js"></script>
+
+<script src="/gists/js/main.js"></script>
+
+<script src="/gists/js/header-shrink.js"></script>
+
+<script src="/gists/js/back2top.js"></script>
+
+<script src="/gists/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>
