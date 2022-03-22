@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    
+    <title>前端开发札记 | 碎碎念ZWS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="朱伟生,网页开发学习博客,前端开发博客,WordPress主题开发博客,碎碎念zws,zhuweisheng,前端开发札记">
+    <meta name="description" content="做一个爱写笔记的攻城狮，记录生活，记录你">
+    <meta name="version" content="2022-03-22 01:48:09">
+    <link rel="icon" href="/img/favicon.ico">
+    
+<link rel="stylesheet" href="/css/main.css">
+
+    
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+    
+    
+  <meta name="generator" content="Hexo 6.1.0"></head>
+<body>
+<div style="display:none"><svg style="position: absolute; width: 0; height: 0;" width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-heart" viewBox="0 0 1024 1024">
+<title>heart</title>
+<path class="path1" d="M755.188 64c-107.63 0-200.258 87.554-243.164 179-42.938-91.444-135.578-179-243.216-179-148.382 0-268.808 120.44-268.808 268.832 0 301.846 304.5 380.994 512.022 679.418 196.154-296.576 511.978-387.206 511.978-679.418 0-148.392-120.43-268.832-268.812-268.832z"></path>
+</symbol>
+<symbol id="icon-twitter" viewBox="0 0 1024 1024">
+<title>twitter</title>
+<path class="path1" d="M1024 226.4c-37.6 16.8-78.2 28-120.6 33 43.4-26 76.6-67.2 92.4-116.2-40.6 24-85.6 41.6-133.4 51-38.4-40.8-93-66.2-153.4-66.2-116 0-210 94-210 210 0 16.4 1.8 32.4 5.4 47.8-174.6-8.8-329.4-92.4-433-219.6-18 31-28.4 67.2-28.4 105.6 0 72.8 37 137.2 93.4 174.8-34.4-1-66.8-10.6-95.2-26.2 0 0.8 0 1.8 0 2.6 0 101.8 72.4 186.8 168.6 206-17.6 4.8-36.2 7.4-55.4 7.4-13.6 0-26.6-1.4-39.6-3.8 26.8 83.4 104.4 144.2 196.2 146-72 56.4-162.4 90-261 90-17 0-33.6-1-50.2-3 93.2 59.8 203.6 94.4 322.2 94.4 386.4 0 597.8-320.2 597.8-597.8 0-9.2-0.2-18.2-0.6-27.2 41-29.4 76.6-66.4 104.8-108.6z"></path>
+</symbol>
+<symbol id="icon-sina-weibo" viewBox="0 0 1024 1024">
+<title>sina-weibo</title>
+<path class="path1" d="M430.2 898c-169.6 16.8-316-60-327-171.2-11-111.4 117.6-215 287-231.8 169.6-16.8 316 60 326.8 171.2 11.2 111.4-117.4 215.2-286.8 231.8zM769.2 528.6c-14.4-4.4-24.4-7.2-16.8-26.2 16.4-41.2 18-76.6 0.2-102-33.2-47.4-124.2-45-228.4-1.2 0 0-32.8 14.2-24.4-11.6 16-51.6 13.6-94.6-11.4-119.6-56.6-56.6-207 2.2-336 131.2-96.4 96.2-152.4 198.8-152.4 287.4 0 169.2 217.2 272.2 429.6 272.2 278.4 0 463.8-161.8 463.8-290.2 0-77.8-65.4-121.8-124.2-140z"></path>
+<path class="path2" d="M954.2 218.6c-67.2-74.6-166.4-103-258-83.6v0c-21.2 4.6-34.6 25.4-30 46.4 4.6 21.2 25.2 34.6 46.4 30 65.2-13.8 135.6 6.4 183.4 59.4s60.8 125.2 40.2 188.4v0c-6.6 20.6 4.6 42.6 25.2 49.4 20.6 6.6 42.6-4.6 49.4-25.2v-0.2c28.8-88.4 10.6-190-56.6-264.6z"></path>
+<path class="path3" d="M850.8 312c-32.8-36.4-81.2-50.2-125.6-40.6-18.2 3.8-29.8 22-26 40.2 4 18.2 22 29.8 40 25.8v0c21.8-4.6 45.4 2.2 61.4 19.8 16 17.8 20.4 42 13.4 63.2v0c-5.6 17.6 4 36.8 21.8 42.6 17.8 5.6 36.8-4 42.6-21.8 14-43.4 5.2-93-27.6-129.2z"></path>
+<path class="path4" d="M439.6 696.6c-6 10.2-19 15-29.2 10.8-10.2-4-13.2-15.6-7.4-25.4 6-9.8 18.6-14.6 28.6-10.8 10 3.6 13.6 15 8 25.4zM385.4 765.8c-16.4 26.2-51.6 37.6-78 25.6-26-11.8-33.8-42.2-17.4-67.8 16.2-25.4 50.2-36.8 76.4-25.8 26.6 11.4 35.2 41.6 19 68zM447 580.6c-80.6-21-171.8 19.2-206.8 90.2-35.8 72.4-1.2 153 80.2 179.4 84.4 27.2 184-14.6 218.6-92.6 34.2-76.6-8.4-155.2-92-177z"></path>
+</symbol>
+<symbol id="icon-rss" viewBox="0 0 1024 1024">
+<title>rss</title>
+<path class="path1" d="M136.294 750.93c-75.196 0-136.292 61.334-136.292 136.076 0 75.154 61.1 135.802 136.292 135.802 75.466 0 136.494-60.648 136.494-135.802-0.002-74.742-61.024-136.076-136.494-136.076zM0.156 347.93v196.258c127.784 0 247.958 49.972 338.458 140.512 90.384 90.318 140.282 211.036 140.282 339.3h197.122c-0.002-372.82-303.282-676.070-675.862-676.070zM0.388 0v196.356c455.782 0 826.756 371.334 826.756 827.644h196.856c0-564.47-459.254-1024-1023.612-1024z"></path>
+</symbol>
+<symbol id="icon-github" viewBox="0 0 1024 1024">
+<title>github</title>
+<path class="path1" d="M512.008 12.642c-282.738 0-512.008 229.218-512.008 511.998 0 226.214 146.704 418.132 350.136 485.836 25.586 4.738 34.992-11.11 34.992-24.632 0-12.204-0.48-52.542-0.696-95.324-142.448 30.976-172.504-60.41-172.504-60.41-23.282-59.176-56.848-74.916-56.848-74.916-46.452-31.778 3.51-31.124 3.51-31.124 51.4 3.61 78.476 52.766 78.476 52.766 45.672 78.27 119.776 55.64 149.004 42.558 4.588-33.086 17.852-55.68 32.506-68.464-113.73-12.942-233.276-56.85-233.276-253.032 0-55.898 20.004-101.574 52.76-137.428-5.316-12.9-22.854-64.972 4.952-135.5 0 0 43.006-13.752 140.84 52.49 40.836-11.348 84.636-17.036 128.154-17.234 43.502 0.198 87.336 5.886 128.256 17.234 97.734-66.244 140.656-52.49 140.656-52.49 27.872 70.528 10.35 122.6 5.036 135.5 32.82 35.856 52.694 81.532 52.694 137.428 0 196.654-119.778 239.95-233.79 252.624 18.364 15.89 34.724 47.046 34.724 94.812 0 68.508-0.596 123.644-0.596 140.508 0 13.628 9.222 29.594 35.172 24.566 203.322-67.776 349.842-259.626 349.842-485.768 0-282.78-229.234-511.998-511.992-511.998z"></path>
+</symbol>
+</defs>
+</svg>
+    </div>
+    <div class="surface-content">
+      <header class="site-header">
+  <hgroup>
+    <h1 class="site-title">
+      <a href="http://zhuweisheng.com.cn" class="logo" title="从前端菜鸟到前端码农">碎碎念ZWS</a>
+    </h1>
+    <p class="site-description">做一个爱写笔记的攻城狮，记录生活，记录你</p>
+  </hgroup>
+  <div class="site-nav">
+    <ul class="topNav-items">
+      
+        <li class="menu-item"><a class="main-nav-link" href="/">首页</a></li>
+      
+        <li class="menu-item"><a class="main-nav-link" href="/categories">分类</a></li>
+      
+        <li class="menu-item"><a class="main-nav-link" href="/friends">链接</a></li>
+      
+        <li class="menu-item"><a class="main-nav-link" href="/we">我们</a></li>
+      
+        <li class="menu-item"><a class="main-nav-link" href="/archives">归档</a></li>
+      
+        <li class="menu-item"><a class="main-nav-link" href="/tags">标签</a></li>
+      
+        <li class="menu-item"><a class="main-nav-link" href="/about">关于</a></li>
+      
+    </ul>
+  </div>
+  <div class="site-icons">
+    
+      <a href="/sitemap.xml" target="_blank" class="rss-link"><svg class="icon icon-rss"><use xlink:href="#icon-rss"></use></svg></a>
+    
+      <a href="https://github.com/nooldey" target="_blank" class="rss-link"><svg class="icon icon-github"><use xlink:href="#icon-github"></use></svg></a>
+    
+      <a href="/love" target="_blank" class="rss-link"><svg class="icon icon-heart"><use xlink:href="#icon-heart"></use></svg></a>
+    
+  </div>
+</header>
+      <div class="container">
+        <section class="main-content"><article id="post-html/html-diary" class="post-item">
+    
+    <header class="post-header">
+        
+  
+    <h2 class="post-title">
+      前端开发札记
+    </h2>
+  
+
+        <div class="post-meta">
+            <time class="article-date" datetime="2016-05-28T04:00:00.000Z" itemprop="datePublished">2016-05-28</time>
+
+            
+                <span 
+	id="/html/html-diary/"
+	data-flag-title="前端开发札记"
+	data-app-id="juoUh639Val1MofdXggfTemu-gzGzoHsz"
+	data-app-key="azFW6rtPGsziybMw9TtcKcRJ"
+	itemprop="visitors"
+	class="leancloud-visitors">
+	<i></i>
+	<span class="leancloud-count"></span>
+	<span>Views</span>
+</span>
+            
+        </div>
+    </header>
+    
+
+    <div class="grap">
+        <p>最近的一些开发过程遇到的东西或者看到的觉得需要记下来的关于javascript的技巧&#x2F;代码。后期将对本文内容进行归类总结，并且汇编为专辑文章。</p>
+<span id="more"></span>
+
+<!-- 日常记录 -->
+<h2 id="一、开发手记"><a href="#一、开发手记" class="headerlink" title="一、开发手记"></a>一、开发手记</h2><h3 id="js解析有不定项子集的json数组"><a href="#js解析有不定项子集的json数组" class="headerlink" title="js解析有不定项子集的json数组"></a>js解析有不定项子集的json数组</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">jsonToHtml</span>(<span class="params">json</span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> res;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> json)&#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="keyword">typeof</span> json[key] == <span class="string">&quot;object&quot;</span>)&#123;</span><br><span class="line">			data = <span class="title function_">jsonToHtml</span>(json[key]);</span><br><span class="line">			res += data;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			res += json[key];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="常用时间戳timestamp格式化"><a href="#常用时间戳timestamp格式化" class="headerlink" title="常用时间戳timestamp格式化"></a>常用时间戳timestamp格式化</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">timeFormat</span> = (<span class="params">t,format=<span class="string">&#x27;Y-M-D-hm&#x27;</span></span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (!t || t == <span class="string">&#x27;&#x27;</span>) <span class="keyword">return</span> t;</span><br><span class="line">    <span class="keyword">let</span> n = <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line">    n.<span class="title function_">setTime</span>(t);</span><br><span class="line">    <span class="keyword">let</span> y = n.<span class="title function_">getFullYear</span>(); <span class="comment">//year</span></span><br><span class="line">    <span class="keyword">let</span> m = n.<span class="title function_">getMonth</span>() + <span class="number">1</span>; <span class="comment">//month</span></span><br><span class="line">    <span class="keyword">let</span> d = n.<span class="title function_">getDate</span>(); <span class="comment">//day</span></span><br><span class="line">    <span class="keyword">let</span> h = n.<span class="title function_">getHours</span>(); <span class="comment">//hour</span></span><br><span class="line">    <span class="keyword">let</span> min = n.<span class="title function_">getMinutes</span>(); <span class="comment">//minutes</span></span><br><span class="line">    <span class="keyword">if</span> (m &lt; <span class="number">10</span>) m = <span class="string">&#x27;0&#x27;</span> + m;</span><br><span class="line">    <span class="keyword">if</span> (d &lt; <span class="number">10</span>) d = <span class="string">&#x27;0&#x27;</span> + d;</span><br><span class="line">    <span class="keyword">if</span> (h &lt; <span class="number">10</span>) h = <span class="string">&#x27;0&#x27;</span> + h;</span><br><span class="line">    <span class="keyword">if</span> (min &lt; <span class="number">10</span>) min = <span class="string">&#x27;0&#x27;</span> + min;</span><br><span class="line">    <span class="keyword">let</span> res = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="keyword">switch</span>(format) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&quot;Y-M-D-hm&quot;</span>:</span><br><span class="line">            res = y + <span class="string">&#x27;年&#x27;</span> + m + <span class="string">&#x27;月&#x27;</span> + d + <span class="string">&#x27;日&#x27;</span> + <span class="string">&#x27; &#x27;</span> + h + <span class="string">&#x27;:&#x27;</span> + min;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&quot;y/m/d-hm&quot;</span>:</span><br><span class="line">            res = y + <span class="string">&#x27;/&#x27;</span> + m + <span class="string">&#x27;/&#x27;</span> + d + <span class="string">&#x27; &#x27;</span> + h + <span class="string">&#x27;:&#x27;</span> + min;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&quot;y/m/d&quot;</span>:</span><br><span class="line">            res = y + <span class="string">&#x27;/&#x27;</span> + m + <span class="string">&#x27;/&#x27;</span> + d;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="attr">default</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="常用货币格式化"><a href="#常用货币格式化" class="headerlink" title="常用货币格式化"></a>常用货币格式化</h3><p>（eg: 123,123,123，121.55）</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> n = <span class="built_in">parseFloat</span>(<span class="number">45412345678.55</span>); <span class="comment">/*转化为浮点型*/</span></span><br><span class="line">   <span class="keyword">var</span> l = n.<span class="title function_">toString</span>().<span class="title function_">split</span>(<span class="string">&#x27;.&#x27;</span>)[<span class="number">0</span>]; <span class="comment">/*整数部分*/</span></span><br><span class="line">   <span class="keyword">var</span> s = n.<span class="title function_">toString</span>().<span class="title function_">split</span>(<span class="string">&#x27;.&#x27;</span>)[<span class="number">1</span>] || <span class="string">&#x27;00&#x27;</span>; <span class="comment">/*小数部分*/</span></span><br><span class="line">   <span class="keyword">var</span> r,x = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">   <span class="keyword">var</span> w = <span class="title class_">Math</span>.<span class="title function_">floor</span>(<span class="built_in">parseInt</span>(l.<span class="property">length</span>/<span class="number">3</span>)); <span class="comment">/*取商*/</span></span><br><span class="line">   <span class="keyword">var</span> y = <span class="built_in">parseInt</span>(l.<span class="property">length</span>%<span class="number">3</span>);  <span class="comment">/*取余*/</span></span><br><span class="line">   <span class="keyword">if</span> (y == <span class="number">0</span>) &#123;w = w-<span class="number">1</span>;&#125;</span><br><span class="line">   <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; w; i++) &#123;</span><br><span class="line">	r = <span class="string">&#x27;,&#x27;</span> + l.<span class="title function_">substring</span>(l.<span class="property">length</span>-<span class="number">3</span>,l.<span class="property">length</span>);</span><br><span class="line">	l = l.<span class="title function_">substring</span>(<span class="number">0</span>,l.<span class="property">length</span>-<span class="number">3</span>);</span><br><span class="line">	x = r + x; <span class="comment">/*拼接*/</span></span><br><span class="line">   &#125;</span><br><span class="line">   x = l + x + <span class="string">&#x27;.&#x27;</span> + s;</span><br></pre></td></tr></table></figure>
+
+<p>更优雅的做法应该是这样的：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">currency</span> = (<span class="params">num</span>) =&gt; &#123;</span><br><span class="line">    <span class="comment">/* 格式化为：123,456,789 */</span></span><br><span class="line">    <span class="keyword">if</span> (!num || <span class="built_in">isNaN</span>(num)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> str = num.<span class="title function_">toString</span>()</span><br><span class="line">    <span class="keyword">let</span> l = <span class="title class_">Math</span>.<span class="title function_">ceil</span>(str.<span class="property">length</span>/<span class="number">3</span>), n = []</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; l; i++) &#123;</span><br><span class="line">        <span class="keyword">let</span> end = str.<span class="property">length</span>-<span class="number">3</span>*i,start = <span class="title class_">Math</span>.<span class="title function_">max</span>(str.<span class="property">length</span>-<span class="number">3</span>*(i+<span class="number">1</span>),<span class="number">0</span>)</span><br><span class="line">        n.<span class="title function_">unshift</span>(str.<span class="title function_">substring</span>(start,end))</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> n.<span class="title function_">join</span>(<span class="string">&#x27;,&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>演示：<input type="text" onchange=" var n = parseFloat(value);
+    var l = n.toString().split('.')[0];
+    var s = n.toString().split('.')[1] || '00';
+    var r,x = '';
+    var w = Math.floor(parseInt(l.length/3));
+    var y = parseInt(l.length%3);
+    if (y == 0) {w = w-1;}
+    for (var i = 0; i < w; i++) {
+        r = ',' + l.substring(l.length-3,l.length);
+        l = l.substring(0,l.length-3);
+        x = r + x;
+    }
+    x = l + x + '.' + s; value = x;"></p>
+<h3 id="密码类型输入处理"><a href="#密码类型输入处理" class="headerlink" title="密码类型输入处理"></a>密码类型输入处理</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">onkeyup</span>=<span class="string">&quot;value=value.replace(/[\W]/g,&#x27;&#x27;)&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 过滤密码中非数字、英文字母外的字符 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 实际上，减号还是可以输入的 --&gt;</span></span><br></pre></td></tr></table></figure>
+<p>演示：<input type="password" onkeyup="value=value.replace(/[\W]/g,'')"></p>
+<h3 id="移除HTML5-input-type-x3D-number-的上下小箭头"><a href="#移除HTML5-input-type-x3D-number-的上下小箭头" class="headerlink" title="移除HTML5 input type&#x3D;number 的上下小箭头"></a>移除HTML5 input type&#x3D;number 的上下小箭头</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;!-- 针对chrome --&gt;</span><br><span class="line"><span class="selector-tag">input</span>::-webkit-outer-spin-button,</span><br><span class="line">input::-webkit-inner-spin-button&#123;</span><br><span class="line">	-webkit-appearance: none <span class="meta">!important</span>;</span><br><span class="line">	<span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">&lt;!-- 针对Firefox --&gt;</span><br><span class="line"><span class="selector-tag">input</span><span class="selector-attr">[type=<span class="string">&quot;number&quot;</span>]</span>&#123;-moz-appearance:textfield;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="修复input-type-x3D-file-在EDGE下无限弹出的问题"><a href="#修复input-type-x3D-file-在EDGE下无限弹出的问题" class="headerlink" title="修复input[type&#x3D;file]在EDGE下无限弹出的问题"></a>修复input[type&#x3D;file]在EDGE下无限弹出的问题</h3><p><a href="/html/input-file/">修复input[type&#x3D;file]在EDGE下无限弹出的问题</a></p>
+<h3 id="修复弹出层用animate动画，导致内层文字抖动"><a href="#修复弹出层用animate动画，导致内层文字抖动" class="headerlink" title="修复弹出层用animate动画，导致内层文字抖动"></a>修复弹出层用<code>animate</code>动画，导致内层文字抖动</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">backface-visibility</span>: hidden;</span><br><span class="line"><span class="attribute">transform-style</span>: preserve-<span class="number">3</span>d;</span><br></pre></td></tr></table></figure>
+
+<!-- 新手知识 -->
+
+<h2 id="二、新手起手式"><a href="#二、新手起手式" class="headerlink" title="二、新手起手式"></a>二、新手起手式</h2><h3 id="移动端WEBAPP开发"><a href="#移动端WEBAPP开发" class="headerlink" title="移动端WEBAPP开发"></a>移动端WEBAPP开发</h3><blockquote>
+<p>为了模仿顶部通栏和底部工具按钮，常用到 <code>position: absolute;</code> 来进行顶部和底部栏的定位，例如设置底部工具栏，则web结构如下：</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;topbar&quot;</span>&gt;</span>我是顶部栏<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;mainbody&quot;</span>&gt;</span>我是主要内容content<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;foobar&quot;</span>&gt;</span>我是底部栏<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>主要样式：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.topbar</span>&#123;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">30px</span>;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">	<span class="attribute">position</span>: absolute;</span><br><span class="line">	<span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">	<span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">	<span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.mainbody</span>&#123;</span><br><span class="line">	<span class="attribute">margin-top</span>: <span class="number">30px</span>;</span><br><span class="line">	<span class="attribute">margin-bottom</span>: <span class="number">45px</span>;</span><br><span class="line">	<span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.foobar</span>&#123;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">45px</span>;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">	<span class="attribute">position</span>: absolute;</span><br><span class="line">	<span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">	<span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">	<span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="H5兼容低版本浏览器"><a href="#H5兼容低版本浏览器" class="headerlink" title="H5兼容低版本浏览器"></a>H5兼容低版本浏览器</h3><blockquote>
+<p>为了兼容低版本浏览器下的H5渲染，常需要在head加入这样一段代码：</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--[if lt IE 9]&gt;</span></span><br><span class="line"><span class="comment">      &lt;script src=&quot;//cdn.bootcss.com/html5shiv/r29/html5.min.js&quot;&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="comment">      &lt;script src=&quot;//cdn.bootcss.com/respond.js/1.4.2/respond.min.js&quot;&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="comment">      &lt;![endif]--&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>同时可能引入normalize.css进行全局样式的初始化。</p>
+<h3 id="文件下载解决方法"><a href="#文件下载解决方法" class="headerlink" title="文件下载解决方法"></a>文件下载解决方法</h3><p>【设置H5属性download&#x3D;XXX】</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;path&quot;</span> <span class="attr">download</span>=<span class="string">&quot;file.name&quot;</span>&gt;</span>Download<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 此处的path必须与站点处于同个IP或域名下，否则执行浏览器默认行为，而不是下载行为。 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- file.name只需填写文件名称，不需要添加后缀。 --&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="兼容IE的单行文字两端对齐"><a href="#兼容IE的单行文字两端对齐" class="headerlink" title="兼容IE的单行文字两端对齐"></a>兼容IE的单行文字两端对齐</h3><p>非flex布局下，在编写HTML文字对齐样式时，兼容IE是个难题，以下是其中一个解决单行文字两端对齐的样式：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">justify-block &#123;</span><br><span class="line">	<span class="attribute">text-align-last</span>: justify; <span class="comment">/* webkit 内核 */</span></span><br><span class="line">	-moz-<span class="attribute">text-align-last</span>: justify; <span class="comment">/* Firefox */</span></span><br><span class="line">	-ms-<span class="attribute">text-align-last</span>: justify;<span class="comment">/* IE 8+ 支持 */</span></span><br><span class="line">	<span class="attribute">text-justify</span>: inter-ideograph;<span class="comment">/* IE 私有属性 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="JS运算符优先级序列表（从高到低）"><a href="#JS运算符优先级序列表（从高到低）" class="headerlink" title="JS运算符优先级序列表（从高到低）"></a>JS运算符优先级序列表（从高到低）</h3><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>.[]()</code></td>
+<td>字段访问、数组下标、函数调用以及表达式分组</td>
+</tr>
+<tr>
+<td><code>++---~!delete new typeof void</code></td>
+<td>一元运算符、返回数据类型、对象创建、未定义值</td>
+</tr>
+<tr>
+<td><code>* / %</code></td>
+<td>乘法、除法、取模</td>
+</tr>
+<tr>
+<td><code>+ - +</code></td>
+<td>加法、减法、字符串连接</td>
+</tr>
+<tr>
+<td><code>&lt;&lt; &gt;&gt; &gt;&gt;&gt;</code></td>
+<td>移位</td>
+</tr>
+<tr>
+<td><code>&lt; &lt;= &gt; &gt;= instanceof</code></td>
+<td>小于、小于等于、大于、大于等于、instanceof</td>
+</tr>
+<tr>
+<td><code>== != === !==</code></td>
+<td>等于、不等于、严格相等、非严格相等</td>
+</tr>
+<tr>
+<td><code>&amp;</code></td>
+<td>按位与</td>
+</tr>
+<tr>
+<td><code>^</code></td>
+<td>按位异或</td>
+</tr>
+<tr>
+<td><code>&#124;</code></td>
+<td>按位或</td>
+</tr>
+<tr>
+<td><code>&amp;&amp;</code></td>
+<td>逻辑与</td>
+</tr>
+<tr>
+<td><code>&#124;&#124;</code></td>
+<td>逻辑或</td>
+</tr>
+<tr>
+<td><code>?:</code></td>
+<td>条件</td>
+</tr>
+<tr>
+<td><code>= oP=</code></td>
+<td>赋值、运算赋值</td>
+</tr>
+<tr>
+<td><code>,</code></td>
+<td>多重求值</td>
+</tr>
+</tbody></table>
+
+    </div>
+
+    
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/" rel="tag">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li></ul>
+    
+    
+    
+</article>
+
+
+    <div class="author-info u-clearfix">
+	
+	<img class="avatar" src="/img/avatar.png" alt="NOOLDEY">
+	
+	<div class="author-content">
+		<div class="author-description">
+			<p>本文作者：NOOLDEY</p>
+			<p>做一个诗情画意的码农，皮皮猪，我们走！</p>
+			<p>原文链接：
+				<a href="http://zhuweisheng.com.cn/html/html-diary/">http://zhuweisheng.com.cn/html/html-diary/</a>
+			</p>
+			<b>本站文章如无特殊声明均为原创，创作不易，转载请注明来源，谢谢！</b>
+		</div>
+	</div>
+</div>
+
+
+<!-- 目录 -->
+
+    <div id="toc" class="toc-article">
+	<div class="toc-wrap">
+		<p class="toc-title">文章目录</p>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%BC%80%E5%8F%91%E6%89%8B%E8%AE%B0"><span class="toc-number">1.</span> <span class="toc-text">一、开发手记</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#js%E8%A7%A3%E6%9E%90%E6%9C%89%E4%B8%8D%E5%AE%9A%E9%A1%B9%E5%AD%90%E9%9B%86%E7%9A%84json%E6%95%B0%E7%BB%84"><span class="toc-number">1.1.</span> <span class="toc-text">js解析有不定项子集的json数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%97%B6%E9%97%B4%E6%88%B3timestamp%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="toc-number">1.2.</span> <span class="toc-text">常用时间戳timestamp格式化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E8%B4%A7%E5%B8%81%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="toc-number">1.3.</span> <span class="toc-text">常用货币格式化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%86%E7%A0%81%E7%B1%BB%E5%9E%8B%E8%BE%93%E5%85%A5%E5%A4%84%E7%90%86"><span class="toc-number">1.4.</span> <span class="toc-text">密码类型输入处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%BB%E9%99%A4HTML5-input-type-x3D-number-%E7%9A%84%E4%B8%8A%E4%B8%8B%E5%B0%8F%E7%AE%AD%E5%A4%B4"><span class="toc-number">1.5.</span> <span class="toc-text">移除HTML5 input type&#x3D;number 的上下小箭头</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E5%A4%8Dinput-type-x3D-file-%E5%9C%A8EDGE%E4%B8%8B%E6%97%A0%E9%99%90%E5%BC%B9%E5%87%BA%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">1.6.</span> <span class="toc-text">修复input[type&#x3D;file]在EDGE下无限弹出的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E5%A4%8D%E5%BC%B9%E5%87%BA%E5%B1%82%E7%94%A8animate%E5%8A%A8%E7%94%BB%EF%BC%8C%E5%AF%BC%E8%87%B4%E5%86%85%E5%B1%82%E6%96%87%E5%AD%97%E6%8A%96%E5%8A%A8"><span class="toc-number">1.7.</span> <span class="toc-text">修复弹出层用animate动画，导致内层文字抖动</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%96%B0%E6%89%8B%E8%B5%B7%E6%89%8B%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">二、新手起手式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E7%AB%AFWEBAPP%E5%BC%80%E5%8F%91"><span class="toc-number">2.1.</span> <span class="toc-text">移动端WEBAPP开发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#H5%E5%85%BC%E5%AE%B9%E4%BD%8E%E7%89%88%E6%9C%AC%E6%B5%8F%E8%A7%88%E5%99%A8"><span class="toc-number">2.2.</span> <span class="toc-text">H5兼容低版本浏览器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="toc-number">2.3.</span> <span class="toc-text">文件下载解决方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%BC%E5%AE%B9IE%E7%9A%84%E5%8D%95%E8%A1%8C%E6%96%87%E5%AD%97%E4%B8%A4%E7%AB%AF%E5%AF%B9%E9%BD%90"><span class="toc-number">2.4.</span> <span class="toc-text">兼容IE的单行文字两端对齐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7%E5%BA%8F%E5%88%97%E8%A1%A8%EF%BC%88%E4%BB%8E%E9%AB%98%E5%88%B0%E4%BD%8E%EF%BC%89"><span class="toc-number">2.5.</span> <span class="toc-text">JS运算符优先级序列表（从高到低）</span></a></li></ol></li></ol>
+	</div>
+	<span class="toc-btn">
+		<i></i>
+		<i></i>
+		<i></i>
+	</span>
+</div>
+<script>
+/* toc切换 */
+!function toc() {
+    var toc = document.body.querySelector('#toc') || document.getElementById('toc');
+    if (!toc) return;
+    var btn = toc.querySelector('.toc-btn') || document.body.getElementsByClassName('toc-btn')[0];
+    btn.onclick = function() {
+        toc.classList.toggle('show');
+    }
+}();
+</script>
+
+
+<!-- 评论留言 -->
+
+    
+<div id="comments">
+    <!-- 来必力 -->
+    
+    <div id="issues"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var gitalk = new Gitalk({
+            clientID: '2175e96bf1778b0e1969',
+            clientSecret: 'b696be3126f6a6364c6fb6adffd398c075e14b07',
+            repo: 'nooldey.github.io',
+            owner: 'nooldey',
+            admin: ['nooldey'],
+            id: '/html/html-diary/', // Ensure uniqueness and length less than 50
+            distractionFreeMode: false // Facebook-like distraction free mode
+        })
+        gitalk.render('issues')
+    </script>
+    
+    <!-- 禁用提示 -->
+    <noscript> 哎呀，评论功能被禁用了，快启用JavaScript恢复吧！ </noscript>
+</div>
+
+</section>
+      </div>
+      <footer class="site-footer">
+	
+	<p>
+		<span>&copy;2013 - 2022</span>
+		<a href="http://zhuweisheng.com.cn" class="logo">
+			碎碎念ZWS
+		</a>
+	</p>
+	<p>
+		<svg class="icon icon-heart">
+			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-heart"></use>
+		</svg>
+		&nbsp;
+		Theme:<a href="https://fatesinger.com" target="_blank" title="Hexo 主题 kana">Kana</a>.
+		&nbsp;
+		
+			<a href="https://tongji.baidu.com/web/welcome/ico?s=7c1c6841aeba207e5d2a25b1b79d9321" target="_blank" rel="external nofollow">访问统计</a>
+		
+	</p>
+	<p>
+		最后更新：2022-03-22 13:48:09
+	</p>
+	<p>
+		
+	</p>
+	<section class="love-time">
+	<p>猪头和丫头牵手走过了：</p>
+	<p class="love-time-count"></p>
+	<p class="love-time-asume"></p>
+</section>
+
+<script src="/js/timer.js"></script>
+
+</footer>
+
+<script src="/js/app.js"></script>
+
+
+	<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  
+<script src="/js/leancloud.js"></script>
+
+
+<!-- Baidu Tongji-->
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?7c1c6841aeba207e5d2a25b1b79d9321";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+    </div>  
+</body>
+</html>
