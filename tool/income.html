@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incomes</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+        font-size: 14px;
+        font-family: -apple-system, "San Francisco Pro", Roboto, "PingFang SC", "Source Han Sans CN", "Microsoft YaHei", sans-serif;
+      }
+
+      .incomeBox {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 350px;
+        height: 250px;
+        margin: 25px auto;
+        border: 1px solid #ccc;
+        background-color: #fafafa;
+        border-radius: 4px;
+        font-size: 15px;
+      }
+
+      .card {
+        color: #555;
+      }
+
+      h3 {
+        text-align: center;
+      }
+
+      input {
+        width: 260px;
+        padding: 8px 10px;
+        box-sizing: border-box;
+        outline: none;
+        border: 1px solid #aaa;
+        border-radius: 4px;
+        font-size: 16px;
+      }
+
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        appearance: none;
+        -webkit-appearance: none;
+      }
+
+      input[type="number"] {
+        -moz-appearance: textfield;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="incomeBox">
+      <main>
+        <h3>盈亏一览</h3>
+        <input type="number" id="coin" value="0.00000735">
+        <section class="card">
+          <p>持有数量：<span id="number"></span></p>
+          <p>持仓成本：<span id="cost"></span></p>
+          <p>累计盈亏：<span id="income"></span></p>
+        </section>
+      </main>
+    </div>
+  </body>
+  <script>
+    ! function () {
+      /*
+       * @Author: zws <nooldey@gmail.com> 
+       * @Date: 2021-05-08 19:24:37 
+ * @Last Modified by: zws
+ * @Last Modified time: 2021-05-08 20:31:39
+       * @Description:  计算持仓成本
+       */
+
+      /**
+       * @param coin 当前单价 -- 实时
+       * @param log 交易记录 -- 变化
+       * @param discount 交易费率
+       * @param usdtin 充值单价
+       * @param usdtout 提现单价
+       * @function calCost 计算持仓成本/持仓数量
+       * @function main 主函数，计算实际盈亏（考虑买入卖出折算成本）
+       */
+
+      // 交易记录
+      const log = [{
+          cb: 0.00000630,
+          num: 1587301.58,
+        },
+        {
+          cb: 0.00000764,
+          num: 6544502.61,
+        },
+        {
+          cb: 0.00000735,
+          num: -6813799.67
+        }
+      ];
+      // 交易费率
+      const discount = 0.002;
+      // 充值单价
+      const usdtin = 6.57;
+      // 提现单价
+      const usdtout = 6.50;
+
+      // 计算持仓成本和持仓数
+      function calCost() {
+        const result = log.reduce((pre, cur) => {
+          const curCost = cur.cb * cur.num;
+          const totalCost = (pre.cb * pre.num) + curCost * (1 - discount);
+          const totalHand = (pre.num + cur.num) * (1 - discount);
+          pre.num = totalHand;
+          pre.cb = totalCost / totalHand;
+          return pre;
+        }, {
+          cb: 0,
+          num: 0
+        });
+
+        return result;
+      }
+
+      // 计算盈亏
+      function main() {
+        const result = calCost();
+
+        // 当前单价
+        let coin = document.getElementById('coin').value;
+
+        {
+          {
+            /*  console.log('number:', result.num);
+                    console.log('percost:', result.cb);  */
+          }
+        }
+
+        const cost = result.num * result.cb * usdtin;
+        // console.log('cost:', cost);
+        const worth = result.num * coin * usdtout;
+        // console.log('worth:', worth);
+        const diff = worth - cost; {
+          {
+            /*  console.log('income:', diff);  */ }
+        }
+
+        document.getElementById('number').innerText = result.num;
+        document.getElementById('cost').innerText = result.cb;
+        document.getElementById('income').innerText = diff;
+      }
+
+      main();
+
+      document.getElementById('coin').addEventListener('change', function () {
+        main()
+      });
+    }();
+  </script>
+
+</html>
