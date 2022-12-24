@@ -1,0 +1,131 @@
+/*
+// tomorrow
+#2d2d2d Background
+#393939 Current Line
+#515151 Selection
+#cccccc Foreground
+#999999 Comment
+#f2777a Red
+#f99157 Orange
+#ffcc66 Yellow
+#99cc99 Green
+#66cccc Aqua
+#6699cc Blue
+#cc99cc Purple
+*/
+.post-item pre {
+  margin: 10px 0;
+  padding: 10px 10px;
+  overflow: auto;
+  color: #ccc;
+  line-height: 22.4px;
+  background: #2d2d2d;
+  font-family: "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace;
+}
+.post-item pre code {
+  background: none;
+  text-shadow: none;
+  padding: 0;
+  color: #ccc;
+}
+.post-item code {
+  color: #f2777a;
+  background: #f8f8f8;
+  padding: 0.3em;
+  border: none;
+  font-family: "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace;
+}
+.highlight {
+  margin: 10px 0;
+  padding: 10px 10px;
+  overflow: auto;
+  color: #ccc;
+  font-size: 0.9em;
+  line-height: 22.4px;
+  border-radius: 4px;
+  background: #2d2d2d;
+}
+.highlight pre {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+.highlight figcaption {
+  line-height: 1em;
+  margin-bottom: 1em;
+}
+.highlight figcaption:before,
+.highlight figcaption:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.highlight figcaption a {
+  float: right;
+}
+.highlight .gutter pre {
+  text-align: right;
+  padding-right: 20px;
+}
+.highlight .gutter pre .line {
+  text-shadow: none;
+}
+.highlight table {
+  margin: 0;
+  width: auto;
+}
+.highlight td {
+  border: none;
+  padding: 0;
+}
+pre .caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+pre .comment {
+  color: #535353;
+}
+pre .keyword,
+pre .function .keyword,
+pre .class .params {
+  color: #66cccc;
+}
+pre .tag,
+pre .doctype,
+pre .params,
+pre .function,
+pre .css .value {
+  color: #ccc;
+}
+pre .css ~ * .tag,
+pre .title,
+pre .at_rule,
+pre .at_rule .keyword,
+pre .preprocessor,
+pre .preprocessor .keyword {
+  color: #f2777a;
+}
+pre .attribute,
+pre .built_in,
+pre .class,
+pre .css ~ * .class,
+pre .function .title {
+  color: #99cc99;
+}
+pre .value,
+pre .string,
+pre .literal {
+  color: #ffcc66;
+}
+pre .number {
+  color: #cc99cc;
+}
+pre .id,
+pre .css ~ * .id {
+  color: #f99157;
+}
+pre .regexp {
+  color: #66cccc;
+}
