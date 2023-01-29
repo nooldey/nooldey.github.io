@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>测试插入脚本</title>
+    <style type="text/css">
+      body {
+        background-color: #e9f0f4;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>Hey, here is an empty page just for script test!</h2>
+    <!-- 赞助组件 -->
+    <!-- <iframe src="https://zhuweisheng.com.cn/sponsor" style="width: 100%; height: 165px;border: none;"></iframe> -->
+  </body>
+  <!-- 问卷 -->
+  <script type="text/javascript">
+    !(function () {
+      var config = null; // 投放配置; 详情请查阅 https://openapi.yuntingai.com/questionnaire
+      (function () {
+        var a = "__ytqs_script__";
+        var b = document.body;
+        var c = document.getElementById(a);
+        var d = function () {
+          YUNTING.pmf.servey("NQQtpncA", config);
+        };
+        if (c) return d();
+        c = document.createElement("script");
+        c.id = a;
+        c.onload = d;
+        c.setAttribute("crossorigin", "");
+        c.src =
+          "https://yunting-static-1251101074.cos.ap-shanghai.myqcloud.com/js/ytpmf.test.js";
+        b.appendChild(c);
+      })();
+    })();
+  </script>
+</html>
