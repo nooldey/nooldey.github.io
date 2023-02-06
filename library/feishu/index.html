@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style type="text/stylesheet" src="./index.css"></style>
+  <script type="text/javascript"
+    src="https://sf1-scmcdn-tos.pstatp.com/goofy/ee/lark/h5jssdk/lark/js_sdk/h5-js-sdk-1.5.11.js"></script>
+  <script type="text/javascript" src="./index.js"></script>
+</head>
+
+<body>
+  <div class="demo">
+    <section class="section">
+      <div class="title ttJSBridge">API By ttJSBridge</div>
+      <div class="item">
+        <div class="desc">Open Location</div>
+        <button id="tt-openLocation">openLocation</button>
+      </div>
+      <div class="item">
+        <div class="desc">Choose Location</div>
+        <button id="tt-chooseLocation">chooseLocation</button>
+      </div>
+      <div class="item">
+        <div class="desc">Get Location Status</div>
+        <button id="tt-getLocationStatus">getLocationStatus</button>
+      </div>
+      <div class="item">
+        <div class="desc">On Location Change</div>
+        <button id="tt-onLocationChange">onLocationChange</button>
+      </div>
+      <div class="item">
+        <div class="desc">Off Location Change</div>
+        <button id="tt-offLocationChange">offLocationChange</button>
+      </div>
+      <div class="item">
+        <div class="desc">Get Wifi Status</div>
+        <button id="tt-getWifiStatus">getWifiStatus</button>
+      </div>
+      <div class="item">
+        <div class="desc">Get Wifi List</div>
+        <button id="tt-getWifiList">getWifiList</button>
+      </div>
+      <div class="item">
+        <div class="desc">Get Connected Wifi</div>
+        <button id="tt-getConnectedWifi">getConnectedWifi</button>
+      </div>
+      <div class="item">
+        <div class="desc">On Get Wifi List</div>
+        <button id="tt-onGetWifiList">onGetWifiList</button>
+      </div>
+      <div class="item">
+        <div class="desc">Off Get Wifi List</div>
+        <button id="tt-offGetWifiList">offGetWifiList</button>
+      </div>
+      <div class="item">
+        <div class="desc">Register screen capture event</div>
+        <button id="tt-onUserCaptureScreen">onUserCaptureScreen</button>
+      </div>
+      <div class="item">
+        <div class="desc">Unregister screen capture event</div>
+        <button id="tt-offUserCaptureScreen">offUserCaptureScreen</button>
+      </div>
+      <div class="item">
+        <div class="desc">get system info</div>
+        <button id="tt-getSystemInfo">getSystemInfo</button>
+      </div>
+      <div class="item">
+        <div class="desc">setClipboardData</div>
+        <button id="tt-setClipboardData">setClipboardData</button>
+      </div>
+      <div class="item">
+        <div class="desc">getClipboardData</div>
+        <button id="tt-getClipboardData">getClipboardData</button>
+      </div>
+      <div class="item">
+        <div class="desc">mailto</div>
+        <button id="tt-mailto">mailto</button>
+      </div>
+      <div class="item">
+        <div class="desc">startDeviceCredential</div>
+        <button id="tt-startDeviceCredential">startDeviceCredential</button>
+      </div>
+      <div class="item">
+        <div class="desc">startPasswordVerify</div>
+        <button id="tt-startPasswordVerify">startPasswordVerify</button>
+      </div>
+      <div class="item">
+        <div class="desc">startFaceVerify</div>
+        <button id="tt-startFaceVerify">startFaceVerify</button>
+      </div>
+      <div class="item">
+        <div class="desc">openSchema</div>
+        <button id="tt-openSchema">openSchema</button>
+      </div>
+      <div class="item">
+        <div class="desc">docsPicker</div>
+        <button id="tt-docsPicker">docsPicker</button>
+      </div>
+      <div class="item">
+        <div class="desc">showModal</div>
+        <button id="tt-showModal">showModal</button>
+      </div>
+      <div class="item">
+        <div class="desc">showPrompt</div>
+        <button id="tt-showPrompt">showPrompt</button>
+      </div>
+      <div class="item">
+        <div class="desc">showToast</div>
+        <button id="tt-showToast">showToast</button>
+      </div>
+      <div class="item">
+        <div class="desc">hideToast</div>
+        <button id="tt-hideToast">hideToast</button>
+      </div>
+      <div class="item">
+        <div class="desc">showActionSheet</div>
+        <button id="tt-showActionSheet">showActionSheet</button>
+      </div>
+      <div class="item">
+        <div class="desc">setNavigationBarTitle</div>
+        <button id="tt-setNavigationBarTitle">setNavigationBarTitle</button>
+      </div>
+      <div class="item">
+        <div class="desc">setNavigationBarColor</div>
+        <button id="tt-setNavigationBarColor">setNavigationBarColor</button>
+      </div>
+      <div class="item">
+        <div class="desc">getUserInfo</div>
+        <button id="tt-getUserInfo">getUserInfo</button>
+      </div>
+      <div class="item">
+        <div class="desc">getLocation</div>
+        <button id="tt-getLocation">getLocation</button>
+      </div>
+      <div class="item">
+        <div class="desc">
+          <div class="desc-text"><span class="tt-downloadProgress"></span>downloadFile</div>
+          <div class="desc-option">
+            <select id="tt-downloadFile-select">
+              <option value="no-cancel">正常下载</option>
+              <option value="auto-cancel">自动取消下载</option>
+            </select>
+          </div>
+        </div>
+        <button id="tt-downloadFile">downloadFile</button>
+      </div>
+      <div class="item">
+        <div class="desc">
+          <div class="desc-text"><span class="tt-openDocumentProgress"></span>openDocument</div>
+          <div class="desc-option">
+            <select id="tt-openDocument-select">
+              <option value="https://github.com/a001189/dzbook/raw/master/Python核心编程第三版中文版.pdf">PDF</option>
+              <option
+                value="http://sinastorage.com/ishare.down.sina.com.cn/23648750.doc?ssig=S6bE6LiIRu&Expires=1573870706&KID=sina,ishare&fn=%25E8%25B0%259A%25E8%25AF%25AD.doc">
+                Doc</option>
+            </select>
+          </div>
+        </div>
+        <button id="tt-openDocument">openDocument</button>
+      </div>
+      <div class="item">
+        <div class="desc">
+          <div class="desc-text"><span class="removeSavedFileProgress"></span>removeSavedFile</div>
+          <div class="desc-option">
+            <select id="removeSavedFile-select">
+              <option value="https://github.com/a001189/dzbook/raw/master/Python核心编程第三版中文版.pdf">PDF</option>
+              <option
+                value="http://sinastorage.com/ishare.down.sina.com.cn/23648750.doc?ssig=S6bE6LiIRu&Expires=1573870706&KID=sina,ishare&fn=%25E8%25B0%259A%25E8%25AF%25AD.doc">
+                Doc</option>
+            </select>
+          </div>
+        </div>
+        <button id="tt-removeSavedFile">removeSavedFile</button>
+      </div>
+      <div class="item">
+        <div class="desc">authorize</div>
+        <button id="tt-authorize">authorize</button>
+      </div>
+      <div class="item">
+        <div class="desc">openSetting</div>
+        <button id="tt-openSetting">openSetting</button>
+      </div>
+      <div class="item">
+        <div class="desc">getSetting</div>
+        <button id="tt-getSetting">getSetting</button>
+      </div>
+      <div class="item">
+        <div class="desc">updateBadge</div>
+        <button id="tt-updateBadge">updateBadge</button>
+      </div>
+      <div class="item">
+        <div class="desc">reportBadge</div>
+        <button id="tt-reportBadge">reportBadge</button>
+      </div>
+      <div class="item">
+        <div class="desc">
+          <div class="desc-text"><span class="getTenantAppScopes"></span>getTenantAppScopes</div>
+        </div>
+        <button id="tt-getTenantAppScopes">getTenantAppScopes</button>
+      </div>
+      <div class="item">
+        <div class="desc">
+          <div class="desc-text"><span class="applyTenantAppScope"></span>applyTenantAppScope</div>
+        </div>
+        <button id="tt-applyTenantAppScope">applyTenantAppScope</button>
+      </div>
+    </section>
+    <section class="section">
+      <div class="title">NFC</div>
+      <div class="item">
+        <div class="desc">startDiscovery/stopDiscovery</div>
+        <button type="button" id="tt-nfc-startDiscovery">
+          启动 NFC 监听
+        </button>
+      </div>
+      <div class="item">
+        <div class="desc">stopDiscovery</div>
+        <button type="button" id="tt-nfc-stopDiscovery">
+          关闭 NFC 监听
+        </button>
+      </div>
+      <div class="item">
+        <div class="desc">read-info</div>
+        <button type="button" id="tt-nfc-read">
+          读取
+        </button>
+      </div>
+      <div class="item">
+        <div class="desc">tech</div>
+        <div>
+          <input type="text" id="tt-nfc-tech" readonly />
+        </div>
+      </div>
+      <div class="item">
+        <div class="desc">data(hex)</div>
+        <pre id="tt-nfc-data"></pre>
+      </div>
+      <div class="item">
+        <div class="desc">atqa(hex)</div>
+        <pre id="tt-nfc-atqa"></pre>
+      </div>
+      <div class="item">
+        <div class="desc">sak</div>
+        <div>
+          <input type="text" id="tt-nfc-sak" readonly>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="title">分享</div>
+      <div class="item">
+        <div class="desc">Share</div>
+        <button id="share">share</button>
+      </div>
+    </section>
+    <section class="section">
+      <div class="title">导航栏</div>
+      <div class="item">
+        <div class="desc">Close page</div>
+        <button id="close">close</button>
+      </div>
+    </section>
+
+    <div id="result" class="result"></div>
+  </div>
+
+  <div class="tips">
+    <div>Please open in Feishu App</div>
+  </div>
+</body>
+
+</html>
