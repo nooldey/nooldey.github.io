@@ -31,6 +31,7 @@ const timeoutLoginPromise = new Promise((resolve, reject) => {
     }, 3000);
 });
 function getQueryVariable(variable) {
+    
     const query = window.location.search.substring(1);
     const vars = query.split("&");
     for (let i = 0; i < vars.length; i++) {
