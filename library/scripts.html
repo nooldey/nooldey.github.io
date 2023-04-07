@@ -21,32 +21,12 @@
   <h2>Hey, here is an empty page just for script test!</h2>
   <!-- 赞助组件 -->
   <!-- <iframe src="https://zhuweisheng.com.cn/sponsor" style="width: 100%; height: 165px;border: none;"></iframe> -->
-  <!-- 问卷按钮 -->
-  <button class="qs-btn" id="__ytqs_script__">触发问卷</button>
   
 </body>
 <script type="text/javascript">
   !(function() {
-    var config = null; // 投放配置; 详情请查阅 问卷调研—网页投放使用指南;
-    (function() {
-      var a = '__ytqs_script__';
-      var b = document.body;
-      var c = document.getElementById(a);
-      var d = function() {
-        if (window['YUNTING']) {
-          YUNTING.pmf.servey('NfBZVAgn', config)
-        } else {
-          c.addEventListener('load', d)
-        }
-      };
-      if (c) return d();
-      c = document.createElement('script');
-      c.id = a;
-      c.onload = d;
-      c.setAttribute('crossorigin', '');
-      c.src = 'https://yunting-static-1251101074.cos.ap-shanghai.myqcloud.com/js/ytpmf.test.js';
-      b.appendChild(c)
-    })();
+      var config = null;  // 投放配置; 详情请查阅 问卷调研—网页投放使用指南;
+      (function(){var a='__ytqs_script__';var b=document.body;var c=document.getElementById(a);var d=function(){if(window['YUNTING']){YUNTING.pmf.servey('NfBZVAgn',config)}else{c.addEventListener('load',d)}};if(c)return d();c=document.createElement('script');c.id=a;c.onload=d;c.setAttribute('crossorigin','');c.src='https://yunting-static-1251101074.cos.ap-shanghai.myqcloud.com/js/ytpmf.test.js';b.appendChild(c)})();
   }());
 </script>
 
