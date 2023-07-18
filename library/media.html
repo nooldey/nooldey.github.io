@@ -39,10 +39,10 @@
             try {
               audio.srcObject = stream;
               console.log("___audio_stream___", audio.srcObject);
-              audio.src = window.URL.createObjectURL(stream);
-              console.log("___audio_stream_src___", audio.src);
               console.log("___audio___", audio);
             } catch (error) {
+              audio.src = window.URL.createObjectURL(stream);
+              console.log("___audio_stream_src___", audio.src);
               console.error(error);
             }
           })
