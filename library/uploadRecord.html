@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Start Recording</title>
+  </head>
+
+  <body>
+    <button id="recordBtn">Start Recording</button>
+    <script>
+      document.onload = function () {
+          const mediaStream = await window.navigator.mediaDevices.getUserMedia({
+              audio: {
+                  // sampleRate: 44100, // 采样率 不生效需要手动重采样
+                  channelCount: 1, // 声道
+                  // echoCancellation: true,
+                  // noiseSuppression: true, // 降噪 实测效果不错
+              },
+          })
+          const audioContext = new window.AudioContext()
+          const inputSampleRate = audioContext.sampleRate
+          const mediaNode = audioContext.createMediaStreamSource(mediaStream)
+
+          if (!audioContext.createScriptProcessor) {
+              audioContext.createScriptProcessor = audioContext.createJavaScriptNode
+          }
+          // 创建一个jsNode
+          const jsNode = audioContext.createScriptProcessor(4096, 1, 1)
+          jsNode.connect(audioContext.destination)
+          jsNode.onaudioprocess = (e) => {
+              // e.inputBuffer.getChannelData(0) (left)
+              // 双通道通过e.inputBuffer.getChannelData(1)获取 (right)
+          }
+          mediaNode.connect(jsNode)
+
+      };
+    </script>
+  </body>
+</html>

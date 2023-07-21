@@ -17,50 +17,6 @@
           "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36";
       };
     </script>
-    <script>
-      function getAudio() {
-        console.log("start get audio...");
-        const audio = document.querySelector("audio");
-        console.log("___audio___", audio);
-        const constraints = {
-          audio: true,
-          video: false,
-        };
-
-        navigator.mediaDevices
-          .getUserMedia(constraints)
-          .then((stream) => {
-            const audioTracks = stream.getAudioTracks();
-            console.log("Got stream with constraints:", constraints);
-            console.log(`Using audio device: ${audioTracks[0].label}`);
-            stream.onremovetrack = () => {
-              console.log("Stream ended");
-            };
-            try {
-              audio.srcObject = stream;
-              console.log("___audio_stream___", audio.srcObject);
-              console.log("___audio___", audio);
-            } catch (error) {
-              audio.src = window.URL.createObjectURL(stream);
-              console.log("___audio_stream_src___", audio.src);
-              console.error(error);
-            }
-          })
-          .catch((error) => {
-            if (error.name === "OverconstrainedError") {
-              console.error(
-                `The resolution ${constraints.audio.width.exact}x${constraints.audio.height.exact} px is not supported by your device.`
-              );
-            } else if (error.name === "NotAllowedError") {
-              console.error(
-                "You need to grant this page permission to access your camera and microphone."
-              );
-            } else {
-              console.error(`getUserMedia error: ${error.name}`, error);
-            }
-          });
-      }
-    </script>
   </head>
 
   <body>
@@ -69,20 +25,5 @@
       referrerpolicy="no-referrer"
       src="https://wx1.sinaimg.cn/orj360/776ddf1fly1h6fjw5zdwhj20zk1hcgpr.jpg"
     />
-    <a
-      href="http://skieer.cn:3000/"
-      target="_blank"
-      >数阔本地测试</a
-    >
-    <h2>语音输入</h2>
-    <input
-      type="text"
-      speech
-      x-webkit-speech="”x-webkit-speech”"
-      onwebkitspeechchange="alert(this.value)"
-    />
-    <h3>语音获取</h3>
-    <button onclick="getAudio()">捕获语音</button>
-    <audio>这是一段音频</audio>
   </body>
 </html>
