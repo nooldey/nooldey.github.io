@@ -1,34 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>测试插入脚本</title>
+    <style type="text/css">
+      body {
+        background-color: #e9f0f4;
+      }
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>测试插入脚本</title>
-  <style type="text/css">
-    body {
-      background-color: #e9f0f4;
-    }
+      button {
+        font-size: 16px;
+      }
+    </style>
+  </head>
 
-    button {
-      font-size: 16px;
-    }
-  </style>
-</head>
-
-<body>
-  <h2>Hey, here is an empty page just for script test!</h2>
-  <button id="yt-sub">触发问卷</button>
-  <script type="text/javascript">
-    !(function() {
-      var config = null;  // 投放配置; 详情请查阅 问卷调研—网页投放使用指南;
-      (function(){var a='__ytqs_script__';var b=document.body;var c=document.getElementById(a);var d=function(){if(window['YUNTING']){YUNTING.pmf.survey('NQQtpncA',config)}else{c.addEventListener('load',d)}};if(c)return d();c=document.createElement('script');c.id=a;c.onload=d;c.setAttribute('crossorigin','');c.src='https://yunting-static-1251101074.cos.ap-shanghai.myqcloud.com/js/ytpmf.prod.js';b.appendChild(c)})();
-  }());
-</script>
-  <!-- 赞助组件 -->
-  <!-- <iframe src="https://zhuweisheng.com.cn/sponsor" style="width: 100%; height: 165px;border: none;"></iframe> -->
-
-</body>
-
+  <body>
+    <h2>Hey, here is an empty page just for script test!</h2>
+    <button id="yt-sub">触发问卷</button>
+    <script type="text/javascript">
+      !(function () {
+        var config = null; // 投放配置; 详情请查阅 问卷调研—网页投放使用指南;
+        (function () {
+          var a = "__ytqs_script__";
+          var b = document.body;
+          var c = document.getElementById(a);
+          var d = function () {
+            if (window["YUNTING"]) {
+              YUNTING.pmf.survey("NQQtpncA", config);
+            } else {
+              c.addEventListener("load", d);
+            }
+          };
+          if (c) return d();
+          c = document.createElement("script");
+          c.id = a;
+          c.onload = d;
+          c.setAttribute("crossorigin", "");
+          c.src =
+            "https://yunting-static-1251101074.cos.ap-shanghai.myqcloud.com/js/ytpmf.test.js";
+          b.appendChild(c);
+        })();
+      })();
+    </script>
+    <!-- 赞助组件 -->
+    <!-- <iframe src="https://zhuweisheng.com.cn/sponsor" style="width: 100%; height: 165px;border: none;"></iframe> -->
+  </body>
 </html>
