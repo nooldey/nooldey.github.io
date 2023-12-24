@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  
+  
+
+  <title>
+    CENTOS7下配置vsftpd | 碎碎念ZWS
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="keywords" content=",CENTOS7下配置vsftpd" />
+  <meta name="description" content="做一个爱写笔记的攻城狮，记录生活，记录你" />
+  <meta name="version" content="2023-12-24 08:20:21" />
+  <link rel="icon" href="/img/favicon.ico" />
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+  
+<link rel="stylesheet" href="/css/highlight.css">
+
+  
+  
+  <script type="text/javascript"> (function(c,l,a,r,i,t,y){ c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)}; t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i; y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y); })(window, document, "clarity", "script", "jwgk6nzppu"); </script>
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+</html>
+<body class="is-animated" >
+  <div style="display:none">
+    <svg style="position: absolute; width: 0; height: 0;" width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <defs>
+        <symbol id="icon-heart" viewBox="0 0 1024 1024">
+          <title>heart</title>
+          <path class="path1" d="M755.188 64c-107.63 0-200.258 87.554-243.164 179-42.938-91.444-135.578-179-243.216-179-148.382 0-268.808 120.44-268.808 268.832 0 301.846 304.5 380.994 512.022 679.418 196.154-296.576 511.978-387.206 511.978-679.418 0-148.392-120.43-268.832-268.812-268.832z"></path>
+        </symbol>
+        <symbol id="icon-twitter" viewBox="0 0 1024 1024">
+          <title>twitter</title>
+          <path class="path1" d="M1024 226.4c-37.6 16.8-78.2 28-120.6 33 43.4-26 76.6-67.2 92.4-116.2-40.6 24-85.6 41.6-133.4 51-38.4-40.8-93-66.2-153.4-66.2-116 0-210 94-210 210 0 16.4 1.8 32.4 5.4 47.8-174.6-8.8-329.4-92.4-433-219.6-18 31-28.4 67.2-28.4 105.6 0 72.8 37 137.2 93.4 174.8-34.4-1-66.8-10.6-95.2-26.2 0 0.8 0 1.8 0 2.6 0 101.8 72.4 186.8 168.6 206-17.6 4.8-36.2 7.4-55.4 7.4-13.6 0-26.6-1.4-39.6-3.8 26.8 83.4 104.4 144.2 196.2 146-72 56.4-162.4 90-261 90-17 0-33.6-1-50.2-3 93.2 59.8 203.6 94.4 322.2 94.4 386.4 0 597.8-320.2 597.8-597.8 0-9.2-0.2-18.2-0.6-27.2 41-29.4 76.6-66.4 104.8-108.6z"></path>
+        </symbol>
+        <symbol id="icon-sina-weibo" viewBox="0 0 1024 1024">
+          <title>sina-weibo</title>
+          <path class="path1" d="M430.2 898c-169.6 16.8-316-60-327-171.2-11-111.4 117.6-215 287-231.8 169.6-16.8 316 60 326.8 171.2 11.2 111.4-117.4 215.2-286.8 231.8zM769.2 528.6c-14.4-4.4-24.4-7.2-16.8-26.2 16.4-41.2 18-76.6 0.2-102-33.2-47.4-124.2-45-228.4-1.2 0 0-32.8 14.2-24.4-11.6 16-51.6 13.6-94.6-11.4-119.6-56.6-56.6-207 2.2-336 131.2-96.4 96.2-152.4 198.8-152.4 287.4 0 169.2 217.2 272.2 429.6 272.2 278.4 0 463.8-161.8 463.8-290.2 0-77.8-65.4-121.8-124.2-140z"></path>
+          <path class="path2" d="M954.2 218.6c-67.2-74.6-166.4-103-258-83.6v0c-21.2 4.6-34.6 25.4-30 46.4 4.6 21.2 25.2 34.6 46.4 30 65.2-13.8 135.6 6.4 183.4 59.4s60.8 125.2 40.2 188.4v0c-6.6 20.6 4.6 42.6 25.2 49.4 20.6 6.6 42.6-4.6 49.4-25.2v-0.2c28.8-88.4 10.6-190-56.6-264.6z"></path>
+          <path class="path3" d="M850.8 312c-32.8-36.4-81.2-50.2-125.6-40.6-18.2 3.8-29.8 22-26 40.2 4 18.2 22 29.8 40 25.8v0c21.8-4.6 45.4 2.2 61.4 19.8 16 17.8 20.4 42 13.4 63.2v0c-5.6 17.6 4 36.8 21.8 42.6 17.8 5.6 36.8-4 42.6-21.8 14-43.4 5.2-93-27.6-129.2z"></path>
+          <path class="path4" d="M439.6 696.6c-6 10.2-19 15-29.2 10.8-10.2-4-13.2-15.6-7.4-25.4 6-9.8 18.6-14.6 28.6-10.8 10 3.6 13.6 15 8 25.4zM385.4 765.8c-16.4 26.2-51.6 37.6-78 25.6-26-11.8-33.8-42.2-17.4-67.8 16.2-25.4 50.2-36.8 76.4-25.8 26.6 11.4 35.2 41.6 19 68zM447 580.6c-80.6-21-171.8 19.2-206.8 90.2-35.8 72.4-1.2 153 80.2 179.4 84.4 27.2 184-14.6 218.6-92.6 34.2-76.6-8.4-155.2-92-177z"></path>
+        </symbol>
+        <symbol id="icon-rss" viewBox="0 0 1024 1024">
+          <title>rss</title>
+          <path class="path1" d="M136.294 750.93c-75.196 0-136.292 61.334-136.292 136.076 0 75.154 61.1 135.802 136.292 135.802 75.466 0 136.494-60.648 136.494-135.802-0.002-74.742-61.024-136.076-136.494-136.076zM0.156 347.93v196.258c127.784 0 247.958 49.972 338.458 140.512 90.384 90.318 140.282 211.036 140.282 339.3h197.122c-0.002-372.82-303.282-676.070-675.862-676.070zM0.388 0v196.356c455.782 0 826.756 371.334 826.756 827.644h196.856c0-564.47-459.254-1024-1023.612-1024z"></path>
+        </symbol>
+        <symbol id="icon-github" viewBox="0 0 1024 1024">
+          <title>github</title>
+          <path class="path1" d="M512.008 12.642c-282.738 0-512.008 229.218-512.008 511.998 0 226.214 146.704 418.132 350.136 485.836 25.586 4.738 34.992-11.11 34.992-24.632 0-12.204-0.48-52.542-0.696-95.324-142.448 30.976-172.504-60.41-172.504-60.41-23.282-59.176-56.848-74.916-56.848-74.916-46.452-31.778 3.51-31.124 3.51-31.124 51.4 3.61 78.476 52.766 78.476 52.766 45.672 78.27 119.776 55.64 149.004 42.558 4.588-33.086 17.852-55.68 32.506-68.464-113.73-12.942-233.276-56.85-233.276-253.032 0-55.898 20.004-101.574 52.76-137.428-5.316-12.9-22.854-64.972 4.952-135.5 0 0 43.006-13.752 140.84 52.49 40.836-11.348 84.636-17.036 128.154-17.234 43.502 0.198 87.336 5.886 128.256 17.234 97.734-66.244 140.656-52.49 140.656-52.49 27.872 70.528 10.35 122.6 5.036 135.5 32.82 35.856 52.694 81.532 52.694 137.428 0 196.654-119.778 239.95-233.79 252.624 18.364 15.89 34.724 47.046 34.724 94.812 0 68.508-0.596 123.644-0.596 140.508 0 13.628 9.222 29.594 35.172 24.566 203.322-67.776 349.842-259.626 349.842-485.768 0-282.78-229.234-511.998-511.992-511.998z"></path>
+        </symbol>
+
+        <symbol id="icon-deploy" viewBox="0 0 1024 1024">
+          <title>deploy</title>
+          <path class="path1" d="M902 32L992 92.192l-90.912 855.264L812 992l-212.336-136.256L294.176 992l-82.176-60 30-298.176L32 475.008v-117.344L902 32z m-153.056 197.456L177.072 431.168l184.928 140.928-30 273.44 272.336-123.168 181.632 119.952 67.616-544.208L577.92 636.304l-101.232-82.88L748.944 229.44z" fill="#0078FF" p-id="2531"></path>
+        </symbol>
+
+      </defs>
+    </svg>
+  </div>
+  <div class="surface-content">
+    <header class="site-header">
+  <hgroup>
+    <h1 class="site-title">
+      <a href="http://zhuweisheng.com.cn" class="logo" title="从前端菜鸟到前端码农">碎碎念ZWS</a>
+    </h1>
+    <p class="site-description">做一个爱写笔记的攻城狮，记录生活，记录你</p>
+  </hgroup>
+  <div class="site-nav">
+    <ul class="topNav-items">
+      
+        <li class="menu-item"><a class="main-nav-link" href="/">首页</a></li>
+      
+        <li class="menu-item"><a class="main-nav-link" href="/categories">分类</a></li>
+      
+        <li class="menu-item"><a class="main-nav-link" href="/friends">链接</a></li>
+      
+        <li class="menu-item"><a class="main-nav-link" href="/we">我们</a></li>
+      
+        <li class="menu-item"><a class="main-nav-link" href="/archives">归档</a></li>
+      
+        <li class="menu-item"><a class="main-nav-link" href="/tags">标签</a></li>
+      
+        <li class="menu-item"><a class="main-nav-link" href="/about">关于</a></li>
+      
+    </ul>
+  </div>
+  <div class="site-icons">
+    
+      <a href="/sitemap.xml" target="_blank" class="rss-link"><svg class="icon icon-rss"><use xlink:href="#icon-rss"></use></svg></a>
+    
+      <a href="https://github.com/nooldey" target="_blank" class="rss-link"><svg class="icon icon-github"><use xlink:href="#icon-github"></use></svg></a>
+    
+      <a href="/love" target="_blank" class="rss-link"><svg class="icon icon-heart"><use xlink:href="#icon-heart"></use></svg></a>
+    
+  </div>
+</header>
+    <div class="container">
+      <section class="main-content"><article id="post-tech/centos-vsftpd" class="post-item">
+  
+  <header class="post-header">
+    
+  
+    <h2 class="post-title">
+      CENTOS7下配置vsftpd
+    </h2>
+  
+
+    <div class="post-meta">
+      <time class="article-date" datetime="2017-07-20T02:02:57.000Z" itemprop="datePublished">2017-07-20</time>
+
+    </div>
+  </header>
+  
+
+  <div class="grap">
+    <p>centos7 下配置ftp很简单，但要跟nginx开启的服务路径存在交叉的时候，坑还是不少啊！</p>
+<p>本文将详细记录在centos7 最小化安装的系统中，从0配置ftp的步骤以及坑点。</p>
+<span id="more"></span>
+
+<h2 id="配置ftp文件上传"><a href="#配置ftp文件上传" class="headerlink" title="配置ftp文件上传"></a>配置ftp文件上传</h2><h3 id="安装vsftp"><a href="#安装vsftp" class="headerlink" title="安装vsftp"></a>安装vsftp</h3><p>参考<a target="_blank" rel="noopener" href="http://www.cnblogs.com/zhi-leaf/p/5983550.html">CentOS7下安装FTP服务</a></p>
+<p>安装、编辑配置文件：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#安装vsftpd</span>
+<span class="token punctuation">[</span>root@nooldey<span class="token punctuation">]</span><span class="token comment"># yum -y install vsftpd</span>
+<span class="token comment">#配置vsftpd</span>
+<span class="token punctuation">[</span>root@nooldey<span class="token punctuation">]</span><span class="token comment"># vi /etc/vsftpd/vsftpd.conf</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>修改配置如下（放开匿名登录，去掉#）：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">anonymous_enable=YES
+anon_upload_enable=YES
+anon_mkdir_write_enable=YES<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p><i>以上修改的三行配置（<code>#修改内容(去掉#)：</code>紧接的三行），是用于匿名登录和上传、新建文件夹的测试，在本文【测试ftp】环节测试完毕后，应重新注释掉以上三行配置。</i></p>
+<p>启动ftp并检查状态</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#启动ftp</span>
+<span class="token punctuation">[</span>root@nooldey<span class="token punctuation">]</span><span class="token comment"># service vsftpd start</span>
+<span class="token comment">#查看状态</span>
+<span class="token punctuation">[</span>root@nooldey<span class="token punctuation">]</span><span class="token comment"># service vsftpd status</span>
+<span class="token comment">#设置开机启动</span>
+<span class="token punctuation">[</span>root@nooldey<span class="token punctuation">]</span><span class="token comment"># systemctl enable vsftpd.service</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="测试ftp连接"><a href="#测试ftp连接" class="headerlink" title="测试ftp连接"></a>测试ftp连接</h3><p>匿名用户账号密码均为<code>anonymous</code>。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@nooldey<span class="token punctuation">]</span><span class="token comment"># yum -y install ftp</span>
+<span class="token punctuation">[</span>root@nooldey<span class="token punctuation">]</span><span class="token comment"># ftp localhost</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>返回码220则服务正常，可以登录；230则为登录成功。<br><img src="https://ssnpic.u.qiniudn.com/hexo/cent-node1.PNG-sy" alt="centos-node8"></p>
+<h3 id="配置vsftpd"><a href="#配置vsftpd" class="headerlink" title="配置vsftpd"></a>配置vsftpd</h3><h4 id="a-vsftpd设置。"><a href="#a-vsftpd设置。" class="headerlink" title="a.vsftpd设置。"></a>a.vsftpd设置。</h4><p>打开并编辑配置conf：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@nooldey<span class="token punctuation">]</span><span class="token comment"># vi /etc/vsftpd/vsftpd.conf</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>将其他内容全部注释掉或删除（注意备份一份默认配置）,在文件最后追加以下完整配置（列表中未列出的行则注释开即可，<code>配置内容随实际使用情况会不定期进行更改</code>）：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment">#禁止匿名</span>
+anonymous_enable=NO
+<span class="token comment">#本地用户可访问</span>
+local_enable=YES
+<span class="token comment">#允许任何形式的ftp写入</span>
+write_enable=YES
+<span class="token comment">#文件创建的权限只有755</span>
+local_umask=022
+<span class="token comment">#激活目录消息（当用户进入目录时提示他们）</span>
+dirmessage_enable=YES
+<span class="token comment">#激活上传/下载的日志记录</span>
+xferlog_enable=YES
+<span class="token comment">#确保端口传输来自端口20</span>
+connect_from_port_20=YES
+<span class="token comment">#使用标准格式的日志文件</span>
+xferlog_std_format=YES
+<span class="token comment">#超时空闲会话</span>
+<span class="token comment">#idle_session_timeout=600</span>
+<span class="token comment">#支持ASCII模式上传下载</span>
+<span class="token comment">#ascii_upload_enable=YES</span>
+<span class="token comment">#ascii_download_enable=YES</span>
+<span class="token comment">#将用户限制在主目录（即限制访问主目录外的上级目录）</span>
+chroot_local_user=YES
+<span class="token comment">#启动限制用户名单（/etc/vsftpd/chroot_list限制在主目录下的名单，为YES时这些用户是例外，不受限制，反之则受限制）</span>
+<span class="token comment">#chroot_list_enable=YES</span>
+<span class="token comment">#chroot_list_file=/etc/vsftpd/chroot_list</span>
+<span class="token comment">#监听ipv4连接，而忽略ipv6连接</span>
+listen=NO
+<span class="token comment">#监听ipv6连接，而忽略ipv4连接</span>
+listen_ipv6=YES
+<span class="token comment">#PAM 服务名称，这里的设置决定PAM将为vsftpd使用配置文件</span>
+pam_service_name=vsftpd
+userlist_enable=YES
+<span class="token comment">#local_root=/home/nooldey</span>
+tcp_wrappers=YES
+<span class="token comment">#自定义添加的内容</span>
+<span class="token comment">#use_localtime=YES</span>
+<span class="token comment">#支持虚拟用户</span>
+<span class="token comment">#guest_enable=YES</span>
+<span class="token comment">#guest_username=nooldey</span>
+<span class="token comment">#配置用户目录</span>
+<span class="token comment">#user_config_dir=/etc/vsftpd/vuser_conf</span>
+<span class="token comment">#允许FTP用户写入权限</span>
+allow_writeable_chroot=YES
+<span class="token comment">#使用完全孤立无特权的用户</span>
+<span class="token comment">#nopriv_user=nooldey</span>
+<span class="token comment">#开启pasv被动模式</span>
+<span class="token comment">#pasv_enable=YES</span>
+<span class="token comment">#pasv_min_port=6000</span>
+<span class="token comment">#pasv_max_port=7000</span>
+<span class="token comment">#这个是用于检测pasv的安全检查,YES为关闭安全检查</span>
+<span class="token comment">#pasv_promiscuous=YES</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="b-新建ftp用户"><a href="#b-新建ftp用户" class="headerlink" title="b.新建ftp用户"></a>b.新建ftp用户</h4><p>新建ftp登录用户：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#创建宿主用户目录</span>
+<span class="token punctuation">[</span>root@nooldey<span class="token punctuation">]</span><span class="token comment"># mkdir -p /var/www/ROOT</span>
+<span class="token comment">#创建宿主用户</span>
+<span class="token punctuation">[</span>root@nooldey<span class="token punctuation">]</span><span class="token comment"># useradd ftpuser -s /sbin/nologin -d /var/www/ROOT</span>
+<span class="token punctuation">[</span>root@nooldey<span class="token punctuation">]</span><span class="token comment"># passwd ftpuser</span>
+<span class="token comment">#设置目录所属以及权限</span>
+<span class="token punctuation">[</span>root@nooldey<span class="token punctuation">]</span><span class="token comment"># chown -R ftpuser.root /var/www/ROOT</span>
+<span class="token punctuation">[</span>root@nooldey<span class="token punctuation">]</span><span class="token comment"># chmod -R 755 /var/www/ROOT</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>注意：如果vsftpd.conf配置中开启了userlist_deny&#x3D;YES,即只允许userlist中的账户登录ftp，需要在<code>user_list</code>中添加新增的ftpuser用户</strong></p>
+<p>重启vsftpd:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@nooldey<span class="token punctuation">]</span><span class="token comment"># service vsftpd restart</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="c-检查SELinux的ftp开关"><a href="#c-检查SELinux的ftp开关" class="headerlink" title="c.检查SELinux的ftp开关"></a>c.检查SELinux的ftp开关</h4><p>在外网（windows环境）用filezilla连接上述搭建的ftp，连接成功，上传文件，出现<code>553 Could not create file</code>错误，无法上传文件！！！我的天，怎么办？</p>
+<p>别慌，出现上传错误，是因为服务器端的ftp没有开启上传写入文件的权限，这就把它解决掉！</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#检查ftp权限SELinux设置</span>
+<span class="token punctuation">[</span>root@nooldey<span class="token punctuation">]</span><span class="token comment"># getsebool -a|grep ftp</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>检查配置是否如下：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">ftpd_anon_write <span class="token punctuation">-</span><span class="token punctuation">-</span><span class="token punctuation">></span> off
+ftpd_connect_all_unreserved <span class="token punctuation">-</span><span class="token punctuation">-</span><span class="token punctuation">></span> off
+ftpd_connect_db <span class="token punctuation">-</span><span class="token punctuation">-</span><span class="token punctuation">></span> off
+ftpd_full_access <span class="token punctuation">-</span><span class="token punctuation">-</span><span class="token punctuation">></span> on
+ftpd_use_cifs <span class="token punctuation">-</span><span class="token punctuation">-</span><span class="token punctuation">></span> off
+ftpd_use_fusefs <span class="token punctuation">-</span><span class="token punctuation">-</span><span class="token punctuation">></span> off
+ftpd_use_nfs <span class="token punctuation">-</span><span class="token punctuation">-</span><span class="token punctuation">></span> off
+ftpd_use_passive_mode <span class="token punctuation">-</span><span class="token punctuation">-</span><span class="token punctuation">></span> off
+httpd_can_connect_ftp <span class="token punctuation">-</span><span class="token punctuation">-</span><span class="token punctuation">></span> off
+httpd_enable_ftp_server <span class="token punctuation">-</span><span class="token punctuation">-</span><span class="token punctuation">></span> off
+tftp_anon_write <span class="token punctuation">-</span><span class="token punctuation">-</span><span class="token punctuation">></span> off
+tftp_home_dir <span class="token punctuation">-</span><span class="token punctuation">-</span><span class="token punctuation">></span> on<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>如果配置与上述有出入，确保开启<code>full_access和tftp_home_dir</code>：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@nooldey<span class="token punctuation">]</span><span class="token comment"># setsebool -P ftpd_full_access 1</span>
+<span class="token punctuation">[</span>root@nooldey<span class="token punctuation">]</span><span class="token comment"># setsebool -P tftp_home_dir 1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h4 id="d-可能用到的指令"><a href="#d-可能用到的指令" class="headerlink" title="d.可能用到的指令"></a>d.可能用到的指令</h4><pre><code>userdel -rf nooldey：强制删除用户及相关目录文件；
+ls –l /home：查看所有系统用户，列出系统中所有的用户；
+vi /etc/passwd：查看所有账号，列出所有账户密码。
+find / -name &#39;*nooldey*&#39;: 查找匹配信息
+</code></pre>
+<p><strong>至此，ftp配置完成，终于成功上传了文件，并且将用户限制在自己的目录下了。</strong></p>
+
+  </div>
+
+  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/centos7/" rel="tag">centos7</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vsftpd/" rel="tag">vsftpd</a></li></ul>
+  
+
+  
+</article>
+
+
+<div class="author-info u-clearfix">
+	
+	<img class="avatar" src="/img/avatar.png" alt="NOOLDEY">
+	
+	<div class="author-content">
+		<div class="author-description">
+			<p>本文作者：NOOLDEY</p>
+			<p>做一个诗情画意的码农，皮皮猪，我们走！</p>
+			<p>原文链接：
+				<a href="http://zhuweisheng.com.cn/tech/centos-vsftpd/">http://zhuweisheng.com.cn/tech/centos-vsftpd/</a>
+			</p>
+			<b>本站文章如无特殊声明均为原创，创作不易，转载请注明来源，谢谢！</b>
+		</div>
+	</div>
+</div>
+
+
+<!-- 目录 -->
+
+<div id="toc" class="toc-article">
+	<div class="toc-wrap">
+		<p class="toc-title">文章目录</p>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEftp%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0"><span class="toc-number">1.</span> <span class="toc-text">配置ftp文件上传</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85vsftp"><span class="toc-number">1.1.</span> <span class="toc-text">安装vsftp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95ftp%E8%BF%9E%E6%8E%A5"><span class="toc-number">1.2.</span> <span class="toc-text">测试ftp连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEvsftpd"><span class="toc-number">1.3.</span> <span class="toc-text">配置vsftpd</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-vsftpd%E8%AE%BE%E7%BD%AE%E3%80%82"><span class="toc-number">1.3.1.</span> <span class="toc-text">a.vsftpd设置。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-%E6%96%B0%E5%BB%BAftp%E7%94%A8%E6%88%B7"><span class="toc-number">1.3.2.</span> <span class="toc-text">b.新建ftp用户</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#c-%E6%A3%80%E6%9F%A5SELinux%E7%9A%84ftp%E5%BC%80%E5%85%B3"><span class="toc-number">1.3.3.</span> <span class="toc-text">c.检查SELinux的ftp开关</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#d-%E5%8F%AF%E8%83%BD%E7%94%A8%E5%88%B0%E7%9A%84%E6%8C%87%E4%BB%A4"><span class="toc-number">1.3.4.</span> <span class="toc-text">d.可能用到的指令</span></a></li></ol></li></ol></li></ol>
+	</div>
+	<span class="toc-btn">
+		<i></i>
+		<i></i>
+		<i></i>
+	</span>
+</div>
+<script>
+/* toc切换 */
+!function toc() {
+    var toc = document.body.querySelector('#toc') || document.getElementById('toc');
+    if (!toc) return;
+    var btn = toc.querySelector('.toc-btn') || document.body.getElementsByClassName('toc-btn')[0];
+    btn.onclick = function() {
+        toc.classList.toggle('show');
+    }
+}();
+</script>
+
+
+<!-- 评论留言 -->
+
+
+<div id="comments">
+  
+  <div id="issues"></div>
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script>
+    var gitalk = new Gitalk({
+      clientID: '2175e96bf1778b0e1969',
+      clientSecret: 'b696be3126f6a6364c6fb6adffd398c075e14b07',
+      repo: 'nooldey.github.io',
+      owner: 'nooldey',
+      admin: ['nooldey'],
+      id: '/tech/centos-vsftpd/', // Ensure uniqueness and length less than 50
+      distractionFreeMode: false // Facebook-like distraction free mode
+    })
+    gitalk.render('issues')
+  </script>
+  
+  <!-- 禁用提示 -->
+  <noscript> 哎呀，评论功能被禁用了，快启用JavaScript恢复吧！ </noscript>
+</div>
+
+</section>
+    </div>
+    
+	<footer class="site-footer">
+		<div class="footer-info">
+			<p>
+				<a href="http://zhuweisheng.com.cn" class="logo">
+					碎碎念ZWS
+				</a>
+				<span>&copy;2013 - 2023</span>
+			</p>
+			<p>
+				<svg class="icon icon-heart">
+					<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-heart"></use>
+				</svg>
+				<a href="https://fatesinger.com" target="_blank" title="Hexo 主题 kana">Theme:Kana</a>.
+			</p>
+			<p>
+				<svg class="icon icon-deploy">
+					<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-deploy"></use>
+				</svg>
+				&nbsp;
+				2023-12-24 20:20:21
+			</p>
+		</div>
+		
+		<div>
+			友情链接：
+			
+		</div>
+		<section class="love-time">
+	<p>猪头和丫头牵手走过了：</p>
+	<p class="love-time-count"></p>
+	<p class="love-time-asume"></p>
+</section>
+
+<script src="/js/timer.js"></script>
+
+	</footer>
+	
+<script src="/js/app.js"></script>
+
+  </div>
+  </body>
+
+  </html>
