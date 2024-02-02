@@ -12,7 +12,7 @@
   <body>
     <button id="recordBtn">Start Recording</button>
     <script>
-      document.onload = function () {
+      document.onload = async function () {
           const mediaStream = await window.navigator.mediaDevices.getUserMedia({
               audio: {
                   // sampleRate: 44100, // 采样率 不生效需要手动重采样
