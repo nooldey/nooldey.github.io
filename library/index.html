@@ -11,7 +11,10 @@
         <a href="https://zhuweisheng.com.cn">ZWS</a>
     </footer>
     <script type="text/javascript">
-        window.onbeforeunload = function() {
+        window.onbeforeunload = function(event) {
+            event.stopPropagation();
+            event.preventDefault();
+            
             const confirm = window.confirm("Are you sure you want to close this window?");
             if (confirm) {
                 window.close();
