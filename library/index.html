@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
     <title>监测浏览器关闭</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Hola, this a test page for monitoring browser close.</h1>
     <footer>
-        <a href="https://zhuweisheng.com.cn">ZWS</a>
+      <a href="https://zhuweisheng.com.cn">ZWS</a>
     </footer>
     <script type="text/javascript">
-        window.onbeforeunload = function(event) {
-            event.stopPropagation();
-            event.preventDefault();
-            
-            const confirm = window.confirm("Are you sure you want to close this window?");
-            if (confirm) {
-                window.close();
-            } else {
-                alert('Canceled close.')
-            }
-        }
+      window.addEventListener('beforeunload', (event) => {
+        // Cancel the event as stated by the standard.
+        event.preventDefault();
+        // Chrome requires returnValue to be set.
+        event.returnValue = '';
+
+        const modal = document.createElement('div');
+        modal.style = 'position:fixed;width:600px;height:450px;background:blue;z-index:999999;'
+        modal.innerText = 'Hey! Stop closing this window?';
+        document.body.appendChild(modal);
+      });
     </script>
-</body>
+  </body>
 </html>
