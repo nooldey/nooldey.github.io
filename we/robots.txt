@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: http://localhost:1313/we/sitemap.xml
+Sitemap: https://zhuweisheng.com.cn/we/sitemap.xml
