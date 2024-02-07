@@ -11,6 +11,20 @@
       body {
         padding: 0;
         margin: 0;
+        background-color: #335c74;
+        background-image: url('https://s2.loli.net/2024/02/03/tBAOpvubfMSyJsG.jpg');
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+      }
+      ::placeholder {
+        color: #ffffff55;
+      }
+      p,
+      h1,
+      h2 {
+        margin: 0;
+        padding: 0;
+        outline: none;
       }
       .wrapper {
         width: 80vw;
@@ -29,25 +43,41 @@
         font-size: 16px;
       }
       .input textarea {
-        padding: 12px;
-        border-radius: 4px;
-        border-color: rgb(214, 214, 214);
+        width: 80%;
+        height: 260px;
+        padding: 10px 12px;
+        resize: none;
+        background-color: #294051;
+        backdrop-filter: blur(40px);
+        border-radius: 24px;
+        border-color: transparent;
+        box-shadow: none;
+        color: #fff;
+      }
+      textarea:hover,
+      textarea:focus-visible {
+        outline: none;
+        border: none;
+        box-shadow: none;
       }
       #submit {
         display: inline-block;
-        margin-top: 25px;
+        width: 350px;
         font-size: 16px;
-        background-color: #16acf7;
-        color: #fff;
+        background: linear-gradient(90deg, #ffd9c9 0%, #83cbff 100%);
+        color: black;
+        outline: none;
         border: none;
+        border-radius: 21px;
+        text-shadow: none;
         padding: 8px 16px;
-        border-radius: 4px;
         cursor: pointer;
       }
       .result {
         width: 100%;
-        margin: 4em auto;
+        margin: 8px 0;
         font-size: 18px;
+        color: #fff;
         text-align: center;
       }
     </style>
@@ -56,19 +86,18 @@
     <div class="wrapper">
       <div class="input">
         <textarea
-          rows="30"
-          cols="80"
           id="json"
           placeholder="请用空格或者全角/半角逗号隔开!"
         ></textarea>
+        <p
+          id="result"
+          class="result"
+        ></p>
         <input
           type="button"
           value="试试手气"
           id="submit"
         />
-      </div>
-      <div class="result">
-        <p id="result"></p>
       </div>
     </div>
     <script type="text/javascript">
@@ -76,27 +105,27 @@
         const randNum = Math.ceil(Math.random() * (arr.length - 1));
         const index = Math.min(randNum, arr.length);
         const res = arr[index];
-        console.log("___res___", res, index, arr);
+        console.log('___res___', res, index, arr);
         return res;
       }
 
       function submit() {
-        console.log("start...");
-        const jsonStr = document.getElementById("json").value;
+        console.log('start...');
+        const jsonStr = document.getElementById('json').value;
         const json = jsonStr
-          .replace(/[\n,，\s]/g, ",")
-          .split(",")
+          .replace(/[\n,，\s]/g, ',')
+          .split(',')
           .filter(Boolean);
 
         if (Array.isArray(json)) {
           const res = rand(json);
-          document.getElementById("result").innerText = res;
+          document.getElementById('result').innerText = res;
         } else {
-          alert("请用空格或者全角/半角逗号隔开！");
+          alert('请用空格或者全角/半角逗号隔开！');
         }
       }
 
-      document.getElementById("submit").onclick = submit;
+      document.getElementById('submit').onclick = submit;
     </script>
   </body>
 </html>
